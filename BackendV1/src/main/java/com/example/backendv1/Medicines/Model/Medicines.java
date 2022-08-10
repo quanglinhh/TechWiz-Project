@@ -2,7 +2,9 @@ package com.example.backendv1.Medicines.Model;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,6 +16,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Medicines")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Medicines {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -27,7 +31,7 @@ public class Medicines {
     private String note;
     @Basic
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private Date createdAt;
     @Basic
     @Column(name = "updated_at")
@@ -40,6 +44,12 @@ public class Medicines {
     @ToString.Exclude
     @JsonIgnore
     private Collection<DrugDosages> drugDosagesCollection;
+
+    public Medicines(long id, String name, String note) {
+        this.id = id;
+        this.name = name;
+        this.note = note;
+    }
 
     public long getId() {
         return id;
@@ -95,8 +105,6 @@ public class Medicines {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         return result;
     }
 }
