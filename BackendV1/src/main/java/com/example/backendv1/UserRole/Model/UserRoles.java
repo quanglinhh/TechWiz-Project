@@ -7,6 +7,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Optional;
 
 @Entity
 @Table(name = "user_roles", schema = "dbo", catalog = "healthmanage")
@@ -32,7 +33,7 @@ public class UserRoles {
 //    @Basic
 //    @Column(name = "user_id")
 //    private Long userId;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Roles rolesByRoleId;
     @ManyToOne(cascade = {CascadeType.ALL})
