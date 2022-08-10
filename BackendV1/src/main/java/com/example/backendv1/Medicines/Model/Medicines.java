@@ -1,10 +1,15 @@
 package com.example.backendv1.Medicines.Model;
 
+import com.example.backendv1.DrugDosages.Model.DrugDosages;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +33,13 @@ public class Medicines {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private Date updatedAt;
+
+    // Luyen: mapping with table drug-dosages
+    @OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<DrugDosages> drugDosagesCollection;
 
     public long getId() {
         return id;

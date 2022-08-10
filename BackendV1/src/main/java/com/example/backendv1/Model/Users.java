@@ -1,10 +1,16 @@
 package com.example.backendv1.Model;
 
+import com.example.backendv1.DrugDosages.Model.DrugDosages;
+import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +50,20 @@ public class Users {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private Date updatedAt;
+
+    //Luyen: Mapping with table DrugUsages
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<DrugDosages> drugDosagesCollection;
+
+    //Luyen: Mapping with table MedicalHistory
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<MedicalHistory> medicalHistoryCollection;
 
     public Date getCreatedAt() {
         return createdAt;

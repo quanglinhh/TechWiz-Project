@@ -22,7 +22,7 @@ public class MedicalHistory {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "user_id")
     private Users user;
 
     @Basic
