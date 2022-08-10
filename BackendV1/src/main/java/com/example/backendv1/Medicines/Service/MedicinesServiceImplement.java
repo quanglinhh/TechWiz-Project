@@ -49,6 +49,7 @@ public class MedicinesServiceImplement implements MedicinesService{
             found.get().setName(medicines.getName());
             found.get().setNote(medicines.getNote());
             repositoryMedicines.save(medicines);
+            return 1;
         }
         return 0;
     }

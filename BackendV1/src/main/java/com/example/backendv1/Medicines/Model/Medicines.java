@@ -87,10 +87,7 @@ public class Medicines {
         if (o == null || getClass() != o.getClass()) return false;
 
         Medicines medicines = (Medicines) o;
-
-        if (id != medicines.id) return false;
-        if (!Objects.equals(name, medicines.name)) return false;
-        return Objects.equals(note, medicines.note);
+        return Objects.equals(name, medicines.name);
     }
 
     @Override
