@@ -1,13 +1,26 @@
 package com.example.backendv1.Model;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+=======
+import com.example.backendv1.DrugDosages.Model.DrugDosages;
+import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+>>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
+<<<<<<< HEAD
+=======
+import java.util.HashSet;
+import java.util.Set;
+>>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 
 @Entity
 @JsonIdentityInfo(
@@ -44,11 +57,44 @@ public class Users {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+<<<<<<< HEAD
     @Basic
     @Column(name = "username")
     private String username;
     @OneToMany(mappedBy = "usersByUserId")
     private Collection<UserRoles> userRolesById;
+=======
+
+    //Luyen: Mapping with table DrugUsages
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<DrugDosages> drugDosagesCollection;
+
+    //Luyen: Mapping with table MedicalHistory
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<MedicalHistory> medicalHistoryCollection;
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+>>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 
     public long getId() {
         return id;
