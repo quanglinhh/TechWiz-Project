@@ -1,9 +1,14 @@
-package com.example.backendv1.Model;
+package com.example.backendv1.Medicines.Model;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
+@Table(name = "Medicines")
 public class Medicines {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -16,10 +21,12 @@ public class Medicines {
     @Column(name = "note")
     private String note;
     @Basic
+    @CreationTimestamp
     @Column(name = "created_at")
     private Date createdAt;
     @Basic
     @Column(name = "updated_at")
+    @UpdateTimestamp
     private Date updatedAt;
 
     public long getId() {
@@ -70,12 +77,8 @@ public class Medicines {
         Medicines medicines = (Medicines) o;
 
         if (id != medicines.id) return false;
-        if (name != null ? !name.equals(medicines.name) : medicines.name != null) return false;
-        if (note != null ? !note.equals(medicines.note) : medicines.note != null) return false;
-        if (createdAt != null ? !createdAt.equals(medicines.createdAt) : medicines.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(medicines.updatedAt) : medicines.updatedAt != null) return false;
-
-        return true;
+        if (!Objects.equals(name, medicines.name)) return false;
+        return Objects.equals(note, medicines.note);
     }
 
     @Override

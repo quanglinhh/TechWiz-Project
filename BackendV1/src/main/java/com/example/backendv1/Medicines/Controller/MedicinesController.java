@@ -1,0 +1,60 @@
+package com.example.backendv1.Medicines.Controller;
+
+import com.example.backendv1.Medicines.Model.Medicines;
+import com.example.backendv1.Medicines.Service.MedicinesService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.Optional;
+
+@RestController
+@RequestMapping(path = "/medicines")
+public class MedicinesController {
+    @Autowired
+    MedicinesService medicinesService;
+
+    @GetMapping(path = {"", "/{pageNo}"})
+    ResponseEntity<Page<Medicines>> getAllMedicines(@PathVariable(required = false) Integer pageNo){
+        int pageSize = 20;
+        Page<Medicines> allMedicinesByPage;
+        if(pageNo != null) {
+            allMedicinesByPage = medicinesService.getAllMedicinesByPage(pageNo, pageSize);
+        }
+        allMedicinesByPage = medicinesService.getAllMedicinesByPage(1, pageSize);
+        if(allMedicinesByPage.isEmpty()){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<Page<Medicines>>(allMedicinesByPage, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "{id}")
+    ResponseEntity<Medicines> getMedicinesById(@PathVariable long id){
+        Optional<Medicines> medicinesById = medicinesService.getMedicinesById(id);
+        if(!medicinesById.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Medicines>(medicinesById.get(), HttpStatus.OK);
+    }
+
+    @PostMapping(path = "")
+    ResponseEntity<Medicines> addMedicines(Medicines medicines){
+        int i = medicinesService.addMedicines(medicines);
+        if(i == 0) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        else {
+            return new ResponseEntity<Medicines>(medicines, HttpStatus.ACCEPTED);
+        }
+    }
+
+    @DeleteMapping(path = "{id}")
+    ResponseEntity<Medicines> deleteMedicines(long id){
+        int i = medicinesService.deleteMedicines(id);
+        if(i == 1){
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+}
