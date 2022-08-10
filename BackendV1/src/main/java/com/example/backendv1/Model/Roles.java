@@ -1,5 +1,8 @@
 package com.example.backendv1.Model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -14,9 +17,11 @@ public class Roles {
     private String name;
     @Basic
     @Column(name = "created_at")
+    @CreationTimestamp
     private Date createdAt;
     @Basic
     @Column(name = "updated_at")
+    @UpdateTimestamp
     private Date updatedAt;
 
     public byte getId() {

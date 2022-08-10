@@ -1,6 +1,12 @@
 package com.example.backendv1.Model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Users {
@@ -29,6 +35,31 @@ public class Users {
     @Basic
     @Column(name = "phone")
     private String phone;
+
+    @Basic
+    @Column(name = "created_at")
+    @CreationTimestamp
+    private Date createdAt;
+    @Basic
+    @Column(name = "updated_at")
+    @UpdateTimestamp
+    private Date updatedAt;
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public long getId() {
         return id;
@@ -124,5 +155,19 @@ public class Users {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         return result;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id"))
+    private Set<Roles> roles = new HashSet<>();
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
     }
 }
