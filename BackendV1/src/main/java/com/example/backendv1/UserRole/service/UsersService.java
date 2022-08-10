@@ -1,8 +1,6 @@
-package com.example.backendv1.service;
+package com.example.backendv1.UserRole.service;
 
-import com.example.backendv1.Model.Users;
-import com.example.backendv1.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.backendv1.UserRole.Model.Users;
 
 import java.util.List;
 import java.util.Optional;

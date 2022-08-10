@@ -1,7 +1,7 @@
 package com.example.backendv1.DrugDosages.Model;
 
 import com.example.backendv1.Medicines.Model.Medicines;
-import com.example.backendv1.Model.Users;
+import com.example.backendv1.UserRole.Model.Users;
 import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;

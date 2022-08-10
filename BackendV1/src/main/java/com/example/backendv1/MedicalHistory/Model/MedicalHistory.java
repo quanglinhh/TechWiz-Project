@@ -1,5 +1,5 @@
 package com.example.backendv1.MedicalHistory.Model;
-import com.example.backendv1.Model.Users;
+import com.example.backendv1.UserRole.Model.Users;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

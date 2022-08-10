@@ -1,7 +1,7 @@
-package com.example.backendv1.controller;
+package com.example.backendv1.UserRole.controller;
 
-import com.example.backendv1.Model.Users;
-import com.example.backendv1.service.UserServiceImpl;
+import com.example.backendv1.UserRole.Model.Users;
+import com.example.backendv1.UserRole.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

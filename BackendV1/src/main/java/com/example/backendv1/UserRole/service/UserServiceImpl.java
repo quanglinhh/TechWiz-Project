@@ -1,12 +1,11 @@
-package com.example.backendv1.service;
+package com.example.backendv1.UserRole.service;
 
-import com.example.backendv1.Model.UserRoles;
-import com.example.backendv1.Model.Users;
-import com.example.backendv1.repository.RoleRepository;
-import com.example.backendv1.repository.UserRepository;
-import com.example.backendv1.repository.UserRoleRepository;
+import com.example.backendv1.UserRole.Model.UserRoles;
+import com.example.backendv1.UserRole.Model.Users;
+import com.example.backendv1.UserRole.repository.RoleRepository;
+import com.example.backendv1.UserRole.repository.UserRepository;
+import com.example.backendv1.UserRole.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

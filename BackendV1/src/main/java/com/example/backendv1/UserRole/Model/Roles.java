@@ -1,4 +1,4 @@
-package com.example.backendv1.Model;
+package com.example.backendv1.UserRole.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

@@ -1,4 +1,4 @@
-package com.example.backendv1.Model;
+package com.example.backendv1.UserRole.Model;
 
 <<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -18,8 +18,6 @@ import java.sql.Date;
 import java.util.Collection;
 <<<<<<< HEAD
 =======
-import java.util.HashSet;
-import java.util.Set;
 >>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 
 @Entity
