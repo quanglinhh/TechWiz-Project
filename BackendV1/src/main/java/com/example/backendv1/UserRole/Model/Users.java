@@ -1,24 +1,17 @@
 package com.example.backendv1.UserRole.Model;
-
-<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-=======
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
-import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
->>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
-<<<<<<< HEAD
-=======
->>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
+import java.util.Objects;
+
 
 @Entity
 @JsonIdentityInfo(
@@ -55,13 +48,13 @@ public class Users {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
-<<<<<<< HEAD
+//<<<<<<< HEAD
     @Basic
     @Column(name = "username")
     private String username;
     @OneToMany(mappedBy = "usersByUserId")
     private Collection<UserRoles> userRolesById;
-=======
+//=======
 
     //Luyen: Mapping with table DrugUsages
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -76,23 +69,6 @@ public class Users {
 //    @EqualsAndHashCode.Exclude
 //    @ToString.Exclude
 //    private MedicalHistory medicalHistory;
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
->>>>>>> 1906c403e9a5f4af0ec2b06dd5daacbf398f6cd7
 
     public long getId() {
         return id;
@@ -178,34 +154,15 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Users users = (Users) o;
-
-        if (id != users.id) return false;
-        if (age != null ? !age.equals(users.age) : users.age != null) return false;
-        if (createdAt != null ? !createdAt.equals(users.createdAt) : users.createdAt != null) return false;
-        if (email != null ? !email.equals(users.email) : users.email != null) return false;
-        if (gender != null ? !gender.equals(users.gender) : users.gender != null) return false;
-        if (name != null ? !name.equals(users.name) : users.name != null) return false;
-        if (password != null ? !password.equals(users.password) : users.password != null) return false;
-        if (phone != null ? !phone.equals(users.phone) : users.phone != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(users.updatedAt) : users.updatedAt != null) return false;
-        if (username != null ? !username.equals(users.username) : users.username != null) return false;
-
-        return true;
+        if (!Objects.equals(email, users.email)) return false;
+        if (!Objects.equals(phone, users.phone)) return false;
+        return Objects.equals(username, users.username);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (gender != null ? gender.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
+        int result = 31 + (email != null ? email.hashCode() : 0);
         result = 31 * result + (username != null ? username.hashCode() : 0);
         return result;
     }

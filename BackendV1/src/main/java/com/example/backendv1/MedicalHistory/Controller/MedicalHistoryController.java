@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "medical-history")
@@ -27,6 +27,12 @@ public class MedicalHistoryController {
             return new ResponseEntity<>(allMedicalHistory, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping(path = "{id}")
+    ResponseEntity<MedicalHistory> getMedicalHistoryById(@PathVariable long id){
+        Optional<MedicalHistory> found = medicalHistoryService.getMedicalHistoryById(id);
+        return found.map(medicalHistory -> new ResponseEntity<>(medicalHistory, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(path = "")

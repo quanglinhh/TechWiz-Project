@@ -38,6 +38,12 @@ public class MedicalHistoryServiceImpl implements MedicalHistoryService{
             medicalHistoryRepository.save(medicalHistory);
             return 1;
         }
+        for(MedicalHistory medicalHistory1 : allMedicalHistory){
+            if(medicalHistory1.equals(medicalHistory)){
+                System.out.println("-------------------------------------------------------");
+                System.out.println("-------------------------------------------------------");
+            }
+        }
         return 0;
     }
 

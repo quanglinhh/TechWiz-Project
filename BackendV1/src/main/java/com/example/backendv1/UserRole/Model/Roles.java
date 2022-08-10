@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.util.Collection;
 
 @Entity
+@Table(name = "Roles")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
