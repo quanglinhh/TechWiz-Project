@@ -8,6 +8,7 @@ import com.example.backendv1.UserRole.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -20,10 +21,10 @@ public class UserServiceImpl implements UsersService{
     UserRepository userRepository;
 
     @Autowired
-    RoleRepository roleRepository;
+    RoleServiceImp roleService;
 
     @Autowired
-    UserRoleRepository userRoleRepository;
+    UserRolesServiceImp userRolesService;
     @Override
     public List<Users> getAllUsers() {
         return userRepository.findAll();
@@ -46,20 +47,17 @@ public class UserServiceImpl implements UsersService{
 
 
 
-    @Override
-    public Users saveUser(Users user) {;
-        return userRepository.save(user);
-    }
+
 
     @Override
-    public Users addUser(Users user) {
+    public Users saveUser(Users user) {
         UserRoles userRoles = new UserRoles();
         userRoles.setUsersByUserId(user);
-        userRoles.setRolesByRoleId(roleRepository.findById((short) 2).get());
+        userRoles.setRolesByRoleId(roleService.findByName("USER"));
         Collection<UserRoles> userRolesCollection = new ArrayList<>();
         userRolesCollection.add(userRoles);
-        userRoleRepository.save(userRoles);
-        user.setUserRolesById(userRolesCollection);
+        userRolesService.saveUserRole(userRoles);
+
         return userRepository.save(user);
     }
 
@@ -67,6 +65,7 @@ public class UserServiceImpl implements UsersService{
     public void deleteUserById(Long id) {
         Users user = userRepository.findById(id).get();
         if(userRepository.findById(id).isPresent()){
+            userRolesService.deleteUserRoleByUserById(user);
             userRepository.delete(user);
         }
     }

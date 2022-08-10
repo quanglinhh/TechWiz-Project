@@ -1,17 +1,22 @@
 package com.example.backendv1.UserRole.Model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.Objects;
-
 
 @Entity
 @JsonIdentityInfo(
@@ -48,13 +53,12 @@ public class Users {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
-//<<<<<<< HEAD
+
     @Basic
     @Column(name = "username")
     private String username;
     @OneToMany(mappedBy = "usersByUserId")
     private Collection<UserRoles> userRolesById;
-//=======
 
     //Luyen: Mapping with table DrugUsages
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -63,12 +67,29 @@ public class Users {
     @JsonIgnore
     private Collection<DrugDosages> drugDosagesCollection;
 
+    public Collection<DrugDosages> getDrugDosagesCollection() {
+        return drugDosagesCollection;
+    }
+
+    public void setDrugDosagesCollection(Collection<DrugDosages> drugDosagesCollection) {
+        this.drugDosagesCollection = drugDosagesCollection;
+    }
+
+    public Collection<MedicalHistory> getMedicalHistoryCollection() {
+        return medicalHistoryCollection;
+    }
+
+    public void setMedicalHistoryCollection(Collection<MedicalHistory> medicalHistoryCollection) {
+        this.medicalHistoryCollection = medicalHistoryCollection;
+    }
+
     //Luyen: Mapping with table MedicalHistory
 //    @OneToOne
 //    @JoinColumn(name = "user_id")
 //    @EqualsAndHashCode.Exclude
 //    @ToString.Exclude
 //    private MedicalHistory medicalHistory;
+
 
     public long getId() {
         return id;

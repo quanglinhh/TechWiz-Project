@@ -1,5 +1,6 @@
 package com.example.backendv1.UserRole.service;
 
+import com.example.backendv1.UserRole.Model.UserRoles;
 import com.example.backendv1.UserRole.Model.Users;
 
 import java.util.List;
@@ -17,5 +18,5 @@ public interface UsersService {
 
     Users saveUser(Users user);
 
-    Users addUser(Users users);
+
 }
