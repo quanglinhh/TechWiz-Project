@@ -21,15 +21,15 @@ public class MedicalHistory {
     @Column(name = "id")
     private long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private Users user;
 
     @Basic
-    @Column(name = "medical_record")
+    @Column(name = "medical_record") //note all the diseases of a user here
     private String medicalRecord;
     @Basic
-    @Column(name = "allergy")
+    @Column(name = "allergy") //note all the allergic item for a user here
     private String allergy;
     @Basic
     @CreationTimestamp

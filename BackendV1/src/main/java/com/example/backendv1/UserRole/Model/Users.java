@@ -87,11 +87,11 @@ public class Users {
     }
 
     //Luyen: Mapping with table MedicalHistory
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    @JsonIgnore
-    private Collection<MedicalHistory> medicalHistoryCollection;
+//    @OneToOne
+//    @JoinColumn(name = "user_id")
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    private MedicalHistory medicalHistory;
 
 
 
