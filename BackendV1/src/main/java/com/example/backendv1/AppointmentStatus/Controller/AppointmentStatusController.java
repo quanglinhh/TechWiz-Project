@@ -1,5 +1,4 @@
 package com.example.backendv1.AppointmentStatus.Controller;
-
 import com.example.backendv1.AppointmentStatus.Model.AppointmentStatus;
 import com.example.backendv1.AppointmentStatus.Service.AppointmentStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ public class AppointmentStatusController {
         if(appointmentStatusLists.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
         return new ResponseEntity<>(appointmentStatusLists, HttpStatus.OK);
     }
 

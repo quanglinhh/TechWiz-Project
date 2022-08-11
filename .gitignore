@@ -4,3 +4,7 @@ BackendV1/src/main/resources/application.properties
 *.properties
 *.properties
 *.properties
+<<<<<<< Updated upstream
+=======
+BackendV1/src/main/resources/application.properties
+>>>>>>> Stashed changes

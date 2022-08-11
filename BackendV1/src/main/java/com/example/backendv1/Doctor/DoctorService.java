@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface DoctorService {
     List<Doctors> getAllDoctor();
-    Page<Doctors> getAllDoctor(int pageNo, int pageSize);
+    Page<Doctors> getAllDoctor(int pageNo, int pageSize, String sortField, String sortDirection);
     public Optional<Doctors> getDoctorById(Long id);
     void addDoctor(Doctors doctor);
     public boolean  deleteDoctor(Long id);
