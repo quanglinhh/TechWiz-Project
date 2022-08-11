@@ -13,8 +13,7 @@ const List = () => {
 
     const handleChange = () => [setSearchTerm(inputRef.current.value)];
     useEffect(() => {
-        console.log('app useeffect!!');
-        let url = 'http://localhost:8080/api/v1/users/';
+        let url = 'http://localhost:8080/api/v1/users';
         if (searchTerm.length > 0) {
             url = url + '?search=' + searchTerm;
         }
@@ -26,13 +25,29 @@ const List = () => {
             });
     }, [searchTerm]);
 
-
     return (
         <div className="list" style={{marginTop:71}}>
             <div className="listContainer" >
                 <div style={{width:'90%', margin:'auto'}}>
                     <div className="row">
                         <div className="col-sm-6 header-todo">
+                            <div style={{height:30}} className="input-group container mt-5 mb-5">
+                                <input
+                                    ref={inputRef}
+                                    type="search"
+                                    className="form-control rounded"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    aria-describedby="search-addon"
+                                />
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary"
+                                    onClick={handleChange}
+                                >
+                                    search
+                                </button>
+                            </div>
                             <div className='user-title' style={{display:"flex", justifyContent:'space-between', width:'100%'}}>
                                 <h1>Users</h1>
                                 <p>

@@ -25,9 +25,17 @@ const HomeAdmin = () => {
                         </div>
 
                     </div>
+                    <div className="charts row">
+                        <div className='col-sm-12 col-md-4 col-lg-3'>
+                            <Featured />
+                        </div>
+                        <div className='col-sm-12 col-md-8 col-lg-9'>
+                            <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+                        </div>
+                    </div>
                     <div className="listContainer">
                         <div className="listTitle">Latest Transactions</div>
-                        <List/>
+                        {/*<List/>*/}
                     </div>
                 </div>
             </div>

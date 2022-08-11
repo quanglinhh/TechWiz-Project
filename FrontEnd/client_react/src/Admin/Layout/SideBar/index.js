@@ -83,7 +83,6 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
 import './sidebar.scss'
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -91,7 +90,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
@@ -105,7 +103,6 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import {Outlet} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import Tippy from "@tippyjs/react";
-import HeadlessTippy from "@tippyjs/react/headless";
 const drawerWidth = 200;
 
 const openedMixin = (theme) => ({
@@ -231,7 +228,7 @@ export default function SideBar() {
 
                                         </Link>
                                         :
-                                        <Link to='/admin'>
+                                        <Link to='/admin/home'>
                                             <Tippy content={<span>Dashboard</span>}
                                                    placement='right'
                                             >
@@ -266,7 +263,7 @@ export default function SideBar() {
                                 >
                                     {index % 2 === 0
                                         ?
-                                        <Link to='user'>
+                                        <Link to='users'>
                                             <Tippy content={<span>Detail</span>}
                                                    placement='right'
                                             >
@@ -275,13 +272,12 @@ export default function SideBar() {
 
                                         </Link>
                                         :
-                                        <Link to='/admin'>
+                                        <Link to='health'>
                                             <Tippy content={<span>Profile</span>}
                                                    placement='right'
                                             >
                                                 <InboxIcon sx={{fontSize: '2.5rem', color: '#ffffff'}}/>
                                             </Tippy>
-
                                         </Link>
                                     }
                                 </ListItemIcon>
@@ -291,7 +287,7 @@ export default function SideBar() {
                     ))}
                 </List>
                 <Divider />
-                <List>
+                {/*<List>
                     {['Todo', 'Trash', 'Spam'].map((text, index) => (
                         <ListItem key={text} disablePadding sx={{ display: 'block' }}>
                             <ListItemButton
@@ -328,9 +324,8 @@ export default function SideBar() {
                             </ListItemButton>
                         </ListItem>
                     ))}
-                </List>
+                </List>*/}
             </Drawer>
-
             <Outlet/>
         </Box>
     );

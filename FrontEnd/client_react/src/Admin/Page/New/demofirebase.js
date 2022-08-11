@@ -1,12 +1,15 @@
 import "./New.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import {useEffect, useState} from "react";
-import { useParams } from 'react-router-dom';
+import Sidebar from "../../Components/Sidebar";
+import {useParams} from "react-router";
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom";
-
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { storage } from "../../../firebase";
 const New = () => {
-    const [files, setFiles] = useState("");
+    const [file, setFile] = useState("");
+    const [percent, setPercent] = useState(0);
     const params = useParams();
     const [users, setUsers] = useState(null);
     const [countries, setCountries] = useState(null);
@@ -14,7 +17,7 @@ const New = () => {
     useEffect(() => {
         if (params.id !== 'new') {
             let student_url =
-                'http://localhost:8080/api/v1/users/' + params.id;
+                'https://62b297ff20cad3685c902f74.mockapi.io/web/' + params.id;
             console.log(student_url);
             fetch(student_url)
                 .then((response) => response.json())
@@ -39,8 +42,38 @@ const New = () => {
     // Up load image
 
     function handleChangeFile(event) {
-        setFiles(event.target.files[0]);
+        setFile(event.target.files[0]);
     }
+
+    const handleUpload = () => {
+        if (!file) {
+            alert("Please upload an image first!");
+        }
+
+        const storageRef = ref(storage, `/files/${file.name}`);
+
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const percent = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+
+                // update progress
+                setPercent(percent);
+            },
+            (err) => console.log(err),
+            () => {
+                // download url
+                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                    console.log(url);
+                });
+            }
+        );
+    };
+
     // end
 
     const handleChange = (event) => {
@@ -50,6 +83,19 @@ const New = () => {
         const name = target.name;
         let data = { ...users };
         data[name] = value;
+        setUsers(data);
+    };
+
+    const handleChangeHome = (event) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        console.log(name);
+        console.log(value);
+        let data = { ...users };
+        data.home[name] = value;
+
+        console.log(data);
         setUsers(data);
     };
 
@@ -67,7 +113,7 @@ const New = () => {
             body: JSON.stringify(users),
         };
         fetch(
-            'http://localhost:8080/api/v1/users/update/' + id,
+            'https://62b297ff20cad3685c902f74.mockapi.io/web/' + id,
             requestOptions
         )
             .then((response) => response.json())
@@ -80,6 +126,7 @@ const New = () => {
 
     return (
         <div className="new">
+            <Sidebar />
             {users !== null ? (
                 <div className="newContainer">
                     <div className="top">
@@ -89,8 +136,8 @@ const New = () => {
                         <div className="left">
                             <img
                                 src={
-                                    files
-                                        ? URL.createObjectURL(files)
+                                    file
+                                        ? URL.createObjectURL(file)
                                         : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
                                 }
                                 alt=""
@@ -105,27 +152,32 @@ const New = () => {
                                     <input
                                         accept="image/*"
                                         type="file"
+                                        name='avatar'
                                         id="file"
                                         onChange={handleChangeFile}
                                         style={{ display: "none" }}
                                     />
+                                    {/*<button onClick={handleUpload} className="btn btn-primary">Upload</button>*/}
+
+
+
                                 </div>
 
-                                <div className="formInput">
-                                    <label> Name</label>
-                                    <input
-                                        type="text"
-                                        value={users.name}
-                                        name="name"
-                                        onChange={(e) => handleChange(e)}
-                                    ></input>
-                                </div>
                                 <div className="formInput">
                                     <label>User Name</label>
                                     <input
                                         type="text"
-                                        value={users.username}
-                                        name="username"
+                                        value={users.nickname}
+                                        name="nickname"
+                                        onChange={(e) => handleChange(e)}
+                                    ></input>
+                                </div>
+                                <div className="formInput">
+                                    <label>Name and Sub name</label>
+                                    <input
+                                        type="text"
+                                        value={users.firstName}
+                                        name="firstName"
                                         onChange={(e) => handleChange(e)}
                                     ></input>
                                 </div>
@@ -148,15 +200,10 @@ const New = () => {
                                     ></input>
                                 </div>
                                 <div className="formInput">
-                                    <label>Date of birthday</label>
-                                    <input
-                                        name='createdAt'
-                                        value={users.createdAt}
-                                        type='text'
-                                        onChange={(e) => handleChange(e)}
-                                    />
+                                    <label>Password</label>
+                                    <input type='text' placeholder='password' />
                                 </div>
-                                {/*<div className="formInput">
+                                <div className="formInput">
                                     <label>Address</label>
                                     <input
                                         type="text"
@@ -173,24 +220,24 @@ const New = () => {
                                         name="country"
                                         onChange={(e) => handleChangeHome(e)}
                                     ></input>
-                                </div>*/}
-
+                                </div>
                                 <div>
                                     <button
-                                        type="button"
+                                        type="submit"
                                         className="btn btn-primary"
                                         onClick={() => saveUser()}
                                     >
                                         Save
                                     </button>
                                     <span> </span>
-                                    <Link to="/admin/users">
+                                    <Link to="/home/users">
                                         <button type="button" className="btn btn-secondary">
                                             Cancel
                                         </button>
                                     </Link>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

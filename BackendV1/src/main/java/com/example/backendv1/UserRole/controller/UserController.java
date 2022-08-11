@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/users")
-@CrossOrigin
+@CrossOrigin("*")
 public class UserController {
     @Autowired
     UserServiceImpl userService;
@@ -65,5 +65,4 @@ public class UserController {
         userService.deleteUserById(id);
         return ResponseEntity.ok("Deleted user with id = "+id);
     }
-
 }

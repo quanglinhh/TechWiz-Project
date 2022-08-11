@@ -5,44 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf637290-ee2f-4979-bdf6-b15da18d80d7" name="Changes" comment="main">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Chart/chart.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Chart/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/Pagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/datatable.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/usePagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Featured/Featured.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Featured/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Widget/Widget.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Widget/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/DEMO.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/Header/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/sidebar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/Home.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/List.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/MyAccount/MyAccount.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/MyAccount/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/New.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Product/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/Single.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/health_facilities/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Doctor/DoctorList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/demofirebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/HealthInformationByDay/Controller/HealthInformationByDayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/HealthInformationByDay/Controller/HealthInformationByDayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackendV1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -71,28 +49,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hai05/TechWiz-Project/FrontEnd/client_react/src",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hai05/TechWiz-Project/FrontEnd/client_react/src/Admin&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin" />
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Page" />
       <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src" />
       <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Components" />
-      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Page" />
       <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -109,7 +91,9 @@
       <workItem from="1660146769272" duration="4997000" />
       <workItem from="1660160206241" duration="6044000" />
       <workItem from="1660167260945" duration="13079000" />
-      <workItem from="1660197835526" duration="5746000" />
+      <workItem from="1660197835526" duration="14176000" />
+      <workItem from="1660215206649" duration="2223000" />
+      <workItem from="1660220123917" duration="293000" />
     </task>
     <servers />
   </component>

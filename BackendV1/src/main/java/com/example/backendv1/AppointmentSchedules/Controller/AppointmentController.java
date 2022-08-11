@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/appointment")
+@CrossOrigin("*")
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
