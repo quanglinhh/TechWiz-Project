@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,14 +16,15 @@ public class DoctorController {
     @Autowired
     DoctorService doctorService;
     @GetMapping({"/get-all", "get-all/{pageNo}"})
-    public ResponseEntity<Page<Doctors>> getAllDoctor(@PathVariable(required = false) Integer pageNo){
+    public ResponseEntity<Page<Doctors>> getAllDoctor(@PathVariable(required = false) Integer pageNo, @RequestParam(value = "sortField", required = false) String sortField, @RequestParam(value = "sortDir", required = false) String sortDir){
         int pageSize = 20;
         Page<Doctors> doctorList;
-        if (pageNo != null){
-            doctorList = doctorService.getAllDoctor(pageNo, pageSize);
+
+        if (pageNo != null && sortDir != null && sortField != null){
+            doctorList = doctorService.getAllDoctor(pageNo, pageSize, sortField, sortDir);
         }
         else {
-            doctorList = doctorService.getAllDoctor(1, pageSize);
+            doctorList = doctorService.getAllDoctor(1, pageSize, "id", "asc");
         }
         if(doctorList.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

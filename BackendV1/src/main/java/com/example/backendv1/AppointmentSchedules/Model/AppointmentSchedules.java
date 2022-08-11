@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -16,6 +17,8 @@ import java.sql.Date;
 @ToString
 @AllArgsConstructor
 @Table(name = "appointment_schedules")
+
+
 public class AppointmentSchedules {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,4 +72,7 @@ public class AppointmentSchedules {
     public int hashCode() {
         return getClass().hashCode();
     }
+
+
+
 }

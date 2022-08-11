@@ -6,25 +6,28 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("api/v1/appointment")
 @CrossOrigin("*")
+
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
     @GetMapping({"/get-all", "/get-all/{pageNo}"})
-    public ResponseEntity<Page<AppointmentSchedules>> getAll(@PathVariable(required = false) Integer pageNo) {
+    public ResponseEntity<Page<AppointmentSchedules>> getAll(@PathVariable(required = false) Integer pageNo,
+                                                             @RequestParam(value = "sortField", required = false) String sortField,
+                                                             @RequestParam(value = "sortDir", required = false) String sortDir
+                                                             )
+
+    {
         int pageSize = 20;
         Page<AppointmentSchedules> appointmentSchedulesLists;
-        if(pageNo != null) {
-            appointmentSchedulesLists = appointmentService.listAllByPage(pageNo, pageSize);
+        if(pageNo != null && sortField != null && sortDir != null) {
+            appointmentSchedulesLists = appointmentService.listAllByPage(pageNo, pageSize, sortField, sortDir);
         } else {
-            appointmentSchedulesLists = appointmentService.listAllByPage(1, pageSize);
+            appointmentSchedulesLists = appointmentService.listAllByPage(1, pageSize, "id", "desc");
         }
 
         if(appointmentSchedulesLists.isEmpty()) {

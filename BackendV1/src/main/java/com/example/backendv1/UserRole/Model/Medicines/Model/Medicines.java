@@ -1,4 +1,4 @@
-package com.example.backendv1.Medicines.Model;
+package com.example.backendv1.UserRole.Model.Medicines.Model;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
 import com.fasterxml.jackson.annotation.JsonIgnore;
