@@ -119,10 +119,12 @@ function Header() {
                                         as={NavLink} to='/login'
                                     ><button style={{padding:'9px 20px 9px 20px', borderRadius:10, backgroundColor:'#f30' }}>Sign in </button></Nav.Link>
                             }*/}
-                            <Nav.Link
-                                className='text_btn'
-                                as={NavLink} to='/login'
-                            ><button style={{padding:'9px 20px 9px 20px', borderRadius:10, backgroundColor:'#f30' }}>Sign in </button></Nav.Link>
+                            <Nav.Link className='text_btn' as={NavLink} to='/login'>
+                                <button style={{padding:'9px 20px 9px 20px', borderRadius:10, backgroundColor:'#f30' }}>Sign in </button>
+                            </Nav.Link>
+                            <Nav.Link className='text_btn' as={NavLink} to='/signup'>
+                                <button style={{padding:'9px 20px 9px 20px', borderRadius:10, backgroundColor:'#f30' }}>Sign up </button>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
