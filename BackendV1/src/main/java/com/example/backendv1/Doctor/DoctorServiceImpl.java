@@ -49,11 +49,11 @@ public class DoctorServiceImpl implements DoctorService{
         if (oldDoctor.isPresent()){
             Doctors _oldDoctor = oldDoctor.get();
             _oldDoctor.setName(doctor.getName());
-            _oldDoctor.setSpecialityId(doctor.getSpecialityId());
+            _oldDoctor.setSpecialists(doctor.getSpecialists());
             _oldDoctor.setImage(doctor.getImage());
             _oldDoctor.setAddress(doctor.getAddress());
             _oldDoctor.setPhone(doctor.getPhone());
-            _oldDoctor.setHealthFacilitiesId(doctor.getHealthFacilitiesId());
+            _oldDoctor.setHealthFacilities(doctor.getHealthFacilities());
             _oldDoctor.setGender(doctor.getGender());
             return doctorRepository.save(_oldDoctor);
         }
