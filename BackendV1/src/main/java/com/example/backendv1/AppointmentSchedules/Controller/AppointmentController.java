@@ -57,8 +57,8 @@ public class AppointmentController {
             return ResponseEntity.notFound().build();
         }
 
-        appointmentSchedules.setUserId(newAppointmentSchedules.getUserId());
-        appointmentSchedules.setDoctorId(newAppointmentSchedules.getDoctorId());
+        appointmentSchedules.setUser(newAppointmentSchedules.getUser());
+        appointmentSchedules.setDoctor(newAppointmentSchedules.getDoctor());
         appointmentSchedules.setStatus(newAppointmentSchedules.getStatus());
         appointmentSchedules.setTime(newAppointmentSchedules.getTime());
         appointmentSchedules.setCreatedAt(newAppointmentSchedules.getCreatedAt());

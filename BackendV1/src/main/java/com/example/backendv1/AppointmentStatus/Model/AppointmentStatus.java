@@ -1,20 +1,19 @@
 package com.example.backendv1.AppointmentStatus.Model;
-
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Collection;
 
 @Entity
-@Data
+@Table(name = "appointment_status")
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppointmentStatus {
@@ -41,5 +40,19 @@ public class AppointmentStatus {
             fetch = FetchType.LAZY
     )
     @JsonIgnore
+    @ToString.Exclude
     private Collection<AppointmentSchedules> appointmentSchedules;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        AppointmentStatus that = (AppointmentStatus) o;
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
