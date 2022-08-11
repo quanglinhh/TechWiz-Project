@@ -62,19 +62,7 @@ public class Users {
 
 
     //Luyen: Mapping with table DrugUsages
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch =FetchType.LAZY)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    @JsonIgnore
-    private Collection<DrugDosages> drugDosagesCollection;
 
-    public Collection<DrugDosages> getDrugDosagesCollection() {
-        return drugDosagesCollection;
-    }
-
-    public void setDrugDosagesCollection(Collection<DrugDosages> drugDosagesCollection) {
-        this.drugDosagesCollection = drugDosagesCollection;
-    }
 
 
 
