@@ -1,7 +1,6 @@
 package com.example.backendv1.AppointmentSchedules.Controller;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Service.AppointmentService;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

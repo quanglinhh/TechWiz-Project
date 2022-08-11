@@ -7,10 +7,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-
-
-
-@Table(name = "drug_dosages", schema = "dbo")
+@Table(name = "drug_dosages")
 
 @Getter
 @Setter
