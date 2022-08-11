@@ -4,6 +4,8 @@ import com.example.backendv1.UserRole.Model.UserRoles;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +22,21 @@ public class UserController {
     @GetMapping(path = "")
     List<Users> getAllUsers(){
         return userService.getAllUsers();
+    }
+
+    @GetMapping(path = {"/all-user", "/all-user/{pageNo}"})
+    ResponseEntity<Page<Users>> getAllUsersByPage(@PathVariable(required = false) Integer pageNo){
+        int pageSize = 20;
+        Page<Users> usersByPage;
+        if(pageNo != null){
+            usersByPage = userService.getAllUsers(pageNo, pageSize);
+        } else {
+            usersByPage = userService.getAllUsers(1, pageSize);
+        }
+        if(usersByPage.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(usersByPage, HttpStatus.OK);
     }
 
     @PostMapping

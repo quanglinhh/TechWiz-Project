@@ -26,7 +26,7 @@ public class HealthInformationByDayController {
 
     //get all
     @RequestMapping(value = "/healthInformation", method = RequestMethod.GET)
-    public ResponseEntity getAllHealthInformationByDay() {
+    public ResponseEntity<List<HealthInformationByDay>> getAllHealthInformationByDay() {
         List<HealthInformationByDay> healthInformationByDays = healthInformationByDayService.getAllHealthInformationByDay();
         if (healthInformationByDays.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -69,7 +69,7 @@ public class HealthInformationByDayController {
     @RequestMapping(value = "/healthInformation/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<HealthInformationByDay> deleteHealthInformationByDay(@PathVariable("id") Long id){
         Optional<HealthInformationByDay> healthInformationByDay = healthInformationByDayService.findHealthInformationByDayById(id);
-        if (healthInformationByDay == null){
+        if (!healthInformationByDay.isPresent()){
             return ResponseEntity.notFound().build();
         } else {
             healthInformationByDayService.deleteHealthInformationByDay(id);

@@ -1,4 +1,5 @@
 package com.example.backendv1.UserRole.Model;
+import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -75,13 +76,13 @@ public class Users {
         this.drugDosagesCollection = drugDosagesCollection;
     }
 
-    public Collection<MedicalHistory> getMedicalHistoryCollection() {
-        return medicalHistoryCollection;
-    }
-
-    public void setMedicalHistoryCollection(Collection<MedicalHistory> medicalHistoryCollection) {
-        this.medicalHistoryCollection = medicalHistoryCollection;
-    }
+//    public Collection<MedicalHistory> getMedicalHistoryCollection() {
+//        return medicalHistoryCollection;
+//    }
+//
+//    public void setMedicalHistoryCollection(Collection<MedicalHistory> medicalHistoryCollection) {
+//        this.medicalHistoryCollection = medicalHistoryCollection;
+//    }
 
     //Luyen: Mapping with table MedicalHistory
 //    @OneToOne

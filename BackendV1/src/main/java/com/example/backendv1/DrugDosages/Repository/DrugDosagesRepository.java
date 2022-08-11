@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DrugDosagesRepository extends JpaRepository<DrugDosages, Long> {
-    Page<DrugDosages> findAll(Pageable pageable);
+    Page<DrugDosages> findAll(Pageable pageable); //divide page
 }

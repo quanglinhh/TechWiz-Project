@@ -33,10 +33,7 @@ public class DrugDosagesController {
     @GetMapping(path = "{id}")
     ResponseEntity<DrugDosages> getDrugUsageById(@PathVariable long id){
         Optional<DrugDosages> found = drugDosagesService.getDrugDosagesById(id);
-        if(found.isPresent()){
-            return new ResponseEntity<>(found.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return found.map(drugDosages -> new ResponseEntity<>(drugDosages, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(path = "")

@@ -31,7 +31,4 @@ public interface HealthInformationByDayRepository extends JpaRepository<HealthIn
     public List<HealthInformationByDay> findHealthInformationByBloodType(String bloodType);
 
 
-
-
-
 }
