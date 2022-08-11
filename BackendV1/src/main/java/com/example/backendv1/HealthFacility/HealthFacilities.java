@@ -1,11 +1,14 @@
 package com.example.backendv1.HealthFacility;
 
+import com.example.backendv1.Doctor.Doctors;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -39,6 +42,12 @@ public class HealthFacilities {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
+
+    @OneToMany(mappedBy = "healthFacilities", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    Collection<Doctors> doctorsList;
 
     public long getId() {
         return id;

@@ -1,6 +1,9 @@
 package com.example.backendv1.Doctor;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,15 +20,19 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
+    public Page<Doctors> getAllDoctor(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        return doctorRepository.findAll(pageable);
+    }
+
+    @Override
     public Optional<Doctors> getDoctorById(Long id) {
         return doctorRepository.findById(id);
     }
-
     @Override
     public void addDoctor(Doctors doctor) {
         doctorRepository.save(doctor);
     }
-
     @Override
     public boolean deleteDoctor(Long id) {
         Optional<Doctors> doctor = doctorRepository.findById(id);

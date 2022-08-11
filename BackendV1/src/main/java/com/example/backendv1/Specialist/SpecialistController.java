@@ -20,17 +20,14 @@ public class SpecialistController {
     public ResponseEntity<List<Specialists>> getAllSpecialist(){
         List<Specialists> specialist = specialistService.getAllSpecialist();
         if (specialist.isEmpty()){
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<List<Specialists>>(specialist, HttpStatus.OK);
+        return new ResponseEntity<>(specialist, HttpStatus.OK);
     }
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<Specialists> getSpecialistById(@PathVariable("id") Long id){
         Optional<Specialists> specialist = specialistService.getSpecialistById(id);
-        if (specialist.isPresent()){
-            return new ResponseEntity<>(specialist.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return specialist.map(specialists -> new ResponseEntity<>(specialists, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @PostMapping("/add")
     public ResponseEntity<Specialists> addSpecialist (@RequestBody Specialists specialist) {
@@ -44,7 +41,7 @@ public class SpecialistController {
     @DeleteMapping("/delete")
     public ResponseEntity<Specialists> deleteSpecialist(@RequestParam("id") long id) {
         boolean bl = specialistService.deleteSpecialist(id);
-        if (bl == true) {
+        if (bl) {
             return new ResponseEntity<>(HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
