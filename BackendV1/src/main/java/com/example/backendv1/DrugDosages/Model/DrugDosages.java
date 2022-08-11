@@ -10,7 +10,7 @@ import java.sql.Date;
 
 
 
-@Table(name = "drug_dosages", schema = "dbo")
+@Table(name = "drug_dosages")
 
 @Getter
 @Setter
