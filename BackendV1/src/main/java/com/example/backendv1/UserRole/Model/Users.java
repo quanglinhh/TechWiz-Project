@@ -1,15 +1,12 @@
 package com.example.backendv1.UserRole.Model;
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
-import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -60,11 +57,12 @@ public class Users {
     @Column(name = "username")
     private String username;
     @OneToMany(mappedBy = "usersByUserId")
+    @JsonIgnore
     private Collection<UserRoles> userRolesById;
 
 
     //Luyen: Mapping with table DrugUsages
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch =FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
