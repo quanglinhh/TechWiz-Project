@@ -1,12 +1,19 @@
 package com.example.backendv1.HealthFacility;
 
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
+@Table(name = "health_facilities")
+@Getter
+@Setter
+@AllArgsConstructor@NoArgsConstructor
+@ToString
 public class HealthFacilities {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -95,27 +102,16 @@ public class HealthFacilities {
         if (o == null || getClass() != o.getClass()) return false;
 
         HealthFacilities that = (HealthFacilities) o;
-
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (address != null ? !address.equals(that.address) : that.address != null) return false;
-        if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
-        if (website != null ? !website.equals(that.website) : that.website != null) return false;
-        if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
-
-        return true;
+        if (!Objects.equals(name, that.name)) return false;
+        if (!Objects.equals(phone, that.phone)) return false;
+        return Objects.equals(website, that.website);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (address != null ? address.hashCode() : 0);
+        int result = 31 + (name != null ? name.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (website != null ? website.hashCode() : 0);
-        result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         return result;
     }
 }

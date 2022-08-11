@@ -1,13 +1,15 @@
 package com.example.backendv1.HealthFacility;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-
 public class FacilityServiceImpl implements FacilityService {
     @Autowired
     private FacilityRepository healthFacilityRepo;
@@ -17,28 +19,38 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
+    public Page<HealthFacilities> getAllHealthFacilities(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        return healthFacilityRepo.findAll(pageable);
+    }
+
+    @Override
     public Optional<HealthFacilities> getHealthFacilityById(Long id) {
         return healthFacilityRepo.findById(id);
     }
 
     @Override
-    public void addHealthFacility(HealthFacilities healthFacility) {
-        healthFacilityRepo.save(healthFacility);
-
+    public int addHealthFacility(HealthFacilities healthFacility) {
+        List<HealthFacilities> all = healthFacilityRepo.findAll();
+        if(!all.contains(healthFacility)){
+            healthFacilityRepo.save(healthFacility);
+            return 1;
+        }
+        return 0;
     }
 
     @Override
-    public boolean deleteHealthFacility(Long id) {
+    public int deleteHealthFacility(Long id) {
         Optional<HealthFacilities> healthFacility = healthFacilityRepo.findById(id);
         if (healthFacility.isPresent()) {
-            healthFacilityRepo.deleteById(id);
-            return true;
+            healthFacilityRepo.delete(healthFacility.get());
+            return 1;
         }
-        return false;
+        return 0;
     }
 
     @Override
-    public HealthFacilities updateHealthFacility(Long id, HealthFacilities healthFacility) {
+    public int updateHealthFacility(Long id, HealthFacilities healthFacility) {
         Optional<HealthFacilities> oldHealthFacility = healthFacilityRepo.findById(id);
         if (oldHealthFacility.isPresent()){
             HealthFacilities _oldHealthFacility = oldHealthFacility.get();
@@ -46,8 +58,9 @@ public class FacilityServiceImpl implements FacilityService {
             _oldHealthFacility.setAddress(healthFacility.getAddress());
             _oldHealthFacility.setPhone(healthFacility.getPhone());
             _oldHealthFacility.setWebsite(healthFacility.getWebsite());
-            return healthFacilityRepo.save(_oldHealthFacility);
+            healthFacilityRepo.save(_oldHealthFacility);
+            return 1;
         }
-        return null;
+        return 0;
     }
 }

@@ -1,13 +1,18 @@
 package com.example.backendv1.HealthFacility;
 
 
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 import java.util.Optional;
 
 public interface FacilityService {
     List<HealthFacilities> getAllHealthFacility();
+
+    //Luyen bo sung
+    Page<HealthFacilities> getAllHealthFacilities(int pageNo, int pageSize);
     public Optional<HealthFacilities> getHealthFacilityById(Long id);
-    void addHealthFacility(HealthFacilities healthFacility);
-    public boolean  deleteHealthFacility(Long id);
-    public HealthFacilities updateHealthFacility (Long id, HealthFacilities healthFacility);
+    int addHealthFacility(HealthFacilities healthFacility);
+    int deleteHealthFacility(Long id);
+    int updateHealthFacility (Long id, HealthFacilities healthFacility);
 }
