@@ -58,6 +58,7 @@ public class UserServiceImpl implements UsersService{
         userRolesCollection.add(userRoles);
         role.setUserRolesById(userRolesCollection);
         userRolesService.saveUserRole(userRoles);
+
         return userRepository.save(user);
     }
     @Override
