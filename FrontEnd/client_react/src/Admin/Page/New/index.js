@@ -1,7 +1,7 @@
 import "./New.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import {useEffect, useState} from "react";
-import { useParams } from 'react-router-dom';
+import {useParams} from "react-router";
 import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom";
 
@@ -9,13 +9,11 @@ const New = () => {
     const [files, setFiles] = useState("");
     const params = useParams();
     const [users, setUsers] = useState(null);
-    const [countries, setCountries] = useState(null);
     let navigate = useNavigate();
     useEffect(() => {
         if (params.id !== 'new') {
             let student_url =
                 'http://localhost:8080/api/v1/users/' + params.id;
-            console.log(student_url);
             fetch(student_url)
                 .then((response) => response.json())
                 .then((data) => {
@@ -26,15 +24,7 @@ const New = () => {
             initData.home = {};
             setUsers(initData);
         }
-        let country_url =
-            'https://60efed10f587af00179d3b82.mockapi.io/api/countries/';
 
-        console.log(country_url);
-        fetch(country_url)
-            .then((response) => response.json())
-            .then((data) => {
-                setCountries(data);
-            });
     }, []);
     // Up load image
 
@@ -53,6 +43,8 @@ const New = () => {
         setUsers(data);
     };
 
+
+
     const saveUser = () => {
         let method = 'POST';
         let id = '';
@@ -67,7 +59,7 @@ const New = () => {
             body: JSON.stringify(users),
         };
         fetch(
-            'http://localhost:8080/api/v1/users/update/' + id,
+            'http://localhost:8080/api/v1/users/' + id,
             requestOptions
         )
             .then((response) => response.json())
@@ -83,7 +75,7 @@ const New = () => {
             {users !== null ? (
                 <div className="newContainer">
                     <div className="top">
-                        <h1>Add New User</h1>
+                        <h1>Edit New </h1>
                     </div>
                     <div className="bottom">
                         <div className="left">

@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
-@CrossOrigin("*")
 public class HealthInformationByDayController {
     @Autowired
     HealthInformationByDayService healthInformationByDayService;
