@@ -1,7 +1,7 @@
-package com.example.backendv1.Medicines.Service;
+package com.example.backendv1.UserRole.Model.Medicines.Service;
 
-import com.example.backendv1.Medicines.Model.Medicines;
-import com.example.backendv1.Medicines.Repository.RepositoryMedicines;
+import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
+import com.example.backendv1.UserRole.Model.Medicines.Repository.RepositoryMedicines;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -10,7 +10,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Objects;
 
 @Entity
 @Getter
@@ -71,4 +70,5 @@ public class AppointmentSchedules {
     public int hashCode() {
         return getClass().hashCode();
     }
+
 }

@@ -1,7 +1,7 @@
-package com.example.backendv1.Medicines.Controller;
+package com.example.backendv1.UserRole.Model.Medicines.Controller;
 
-import com.example.backendv1.Medicines.Model.Medicines;
-import com.example.backendv1.Medicines.Service.MedicinesService;
+import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
+import com.example.backendv1.UserRole.Model.Medicines.Service.MedicinesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;

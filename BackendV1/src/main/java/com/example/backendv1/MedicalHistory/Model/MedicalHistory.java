@@ -11,7 +11,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "medical_history", schema = "dbo", catalog = "HealthManage")
+@Table(name = "medical_history")
 @Getter
 @Setter
 @AllArgsConstructor

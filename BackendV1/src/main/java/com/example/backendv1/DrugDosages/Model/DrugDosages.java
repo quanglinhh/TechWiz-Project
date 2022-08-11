@@ -1,13 +1,13 @@
 package com.example.backendv1.DrugDosages.Model;
 
-import com.example.backendv1.Medicines.Model.Medicines;
+import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
 import com.example.backendv1.UserRole.Model.Users;
 import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "drug_dosages", schema = "dbo", catalog = "HealthManage")
+@Table(name = "drug_dosages")
 @Getter
 @Setter
 @AllArgsConstructor

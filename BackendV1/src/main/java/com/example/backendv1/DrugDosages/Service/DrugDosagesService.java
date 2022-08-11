@@ -1,7 +1,6 @@
 package com.example.backendv1.DrugDosages.Service;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
-import com.example.backendv1.Medicines.Model.Medicines;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

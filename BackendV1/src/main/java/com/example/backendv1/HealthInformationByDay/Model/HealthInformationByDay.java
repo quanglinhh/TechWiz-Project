@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "health_information_by_day", schema = "dbo", catalog = "HealthManage")
+@Table(name = "health_information_by_day")
 @Getter
 @Setter
 @AllArgsConstructor

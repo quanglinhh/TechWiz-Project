@@ -1,5 +1,7 @@
 package com.example.backendv1.UserRole.service;
 
+import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay;
+import com.example.backendv1.UserRole.Model.Roles;
 import com.example.backendv1.UserRole.Model.UserRoles;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.repository.RoleRepository;
@@ -9,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -61,14 +66,15 @@ public class UserServiceImpl implements UsersService{
     public Users saveUser(Users user) {
         UserRoles userRoles = new UserRoles();
         userRoles.setUsersByUserId(user);
-        userRoles.setRolesByRoleId(roleService.findByName("USER"));
+        Roles role = roleService.findByRoleName("USER");
+        userRoles.setRolesByRoleId(role);
         Collection<UserRoles> userRolesCollection = new ArrayList<>();
         userRolesCollection.add(userRoles);
+        role.setUserRolesById(userRolesCollection);
         userRolesService.saveUserRole(userRoles);
 
         return userRepository.save(user);
     }
-
     @Override
     public void deleteUserById(Long id) {
         Users user = userRepository.findById(id).get();
@@ -77,4 +83,5 @@ public class UserServiceImpl implements UsersService{
             userRepository.delete(user);
         }
     }
+
 }

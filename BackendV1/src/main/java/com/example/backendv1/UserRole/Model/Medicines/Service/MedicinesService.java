@@ -1,6 +1,6 @@
-package com.example.backendv1.Medicines.Service;
+package com.example.backendv1.UserRole.Model.Medicines.Service;
 
-import com.example.backendv1.Medicines.Model.Medicines;
+import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
