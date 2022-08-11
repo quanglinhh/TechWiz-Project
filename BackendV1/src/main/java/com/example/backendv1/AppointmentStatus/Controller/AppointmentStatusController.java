@@ -23,7 +23,7 @@ public class AppointmentStatusController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
-        return new ResponseEntity<List<AppointmentStatus>>(appointmentStatusLists, HttpStatus.OK);
+        return new ResponseEntity<>(appointmentStatusLists, HttpStatus.OK);
     }
 
     @PostMapping("/save")
@@ -45,10 +45,7 @@ public class AppointmentStatusController {
         if(appointmentStatus == null) {
             return ResponseEntity.notFound().build();
         }
-
         appointmentStatus.setName(newAppointmentStatus.getName());
-        appointmentStatus.setCreatedAt(newAppointmentStatus.getCreatedAt());
-        appointmentStatus.setUpdatedAt(newAppointmentStatus.getUpdatedAt());
 
         appointmentStatusService.save(appointmentStatus);
         return ResponseEntity.ok(appointmentStatus);

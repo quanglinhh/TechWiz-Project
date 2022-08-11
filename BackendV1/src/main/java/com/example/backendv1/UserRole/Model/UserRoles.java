@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.util.Optional;
 
 @Entity
-@Table(name = "user_roles", schema = "dbo", catalog = "healthmanage")
+@Table(name = "user_roles", schema = "dbo")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")

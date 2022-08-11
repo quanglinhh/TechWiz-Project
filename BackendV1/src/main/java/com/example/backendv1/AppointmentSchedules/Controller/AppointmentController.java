@@ -1,5 +1,4 @@
 package com.example.backendv1.AppointmentSchedules.Controller;
-
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/appointment")
@@ -50,31 +50,26 @@ public class AppointmentController {
             @PathVariable("id") Long id,
             @RequestBody AppointmentSchedules newAppointmentSchedules
     ) {
-
-        AppointmentSchedules appointmentSchedules = appointmentService.findById(id).get();
-
-        if(appointmentSchedules == null) {
-            return ResponseEntity.notFound().build();
+        Optional<AppointmentSchedules> appointmentSchedules = appointmentService.findById(id);
+        if(appointmentSchedules.isPresent()){
+            appointmentSchedules.get().setUser(newAppointmentSchedules.getUser());
+            appointmentSchedules.get().setDoctor(newAppointmentSchedules.getDoctor());
+            appointmentSchedules.get().setStatus(newAppointmentSchedules.getStatus());
+            appointmentSchedules.get().setTime(newAppointmentSchedules.getTime());
+            appointmentService.save(appointmentSchedules.get());
+            return ResponseEntity.ok(appointmentSchedules.get());
         }
-
-        appointmentSchedules.setUser(newAppointmentSchedules.getUser());
-        appointmentSchedules.setDoctor(newAppointmentSchedules.getDoctor());
-        appointmentSchedules.setStatus(newAppointmentSchedules.getStatus());
-        appointmentSchedules.setTime(newAppointmentSchedules.getTime());
-        appointmentSchedules.setCreatedAt(newAppointmentSchedules.getCreatedAt());
-        appointmentSchedules.setUpdatedAt(newAppointmentSchedules.getUpdatedAt());
-
-        appointmentService.save(appointmentSchedules);
-        return ResponseEntity.ok(appointmentSchedules);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<AppointmentSchedules> delete(
             @PathVariable(value = "id") Long id
     ) {
-        AppointmentSchedules appointmentSchedules = appointmentService.findById(id).get();
+        Optional<AppointmentSchedules> appointmentSchedules = appointmentService.findById(id);
 
-        if(appointmentSchedules == null) {
+        if(appointmentSchedules.isPresent()) {
+            appointmentService.deleteById(id);
             return ResponseEntity.notFound().build();
         }
 

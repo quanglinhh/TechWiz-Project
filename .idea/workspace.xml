@@ -5,8 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf637290-ee2f-4979-bdf6-b15da18d80d7" name="Changes" comment="main">
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Chart/chart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Chart/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/Pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/datatable.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Datatable/usePagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Featured/Featured.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Featured/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Widget/Widget.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Components/Widget/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/DEMO.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/Header/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Layout/SideBar/sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/Home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Home/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/List.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/List/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/MyAccount/MyAccount.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/MyAccount/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/New.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/New/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Product/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/Single.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Admin/Page/Single/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackendV1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/index.js" afterDir="false" />
     </list>
@@ -43,7 +77,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/blog-ui",
+    "last_opened_file_path": "C:/Users/hai05/TechWiz-Project/FrontEnd/client_react/src",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -56,6 +90,8 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src" />
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Components" />
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Admin\Page" />
       <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Components" />
     </key>
   </component>
@@ -72,7 +108,8 @@
       <workItem from="1660145136522" duration="693000" />
       <workItem from="1660146769272" duration="4997000" />
       <workItem from="1660160206241" duration="6044000" />
-      <workItem from="1660167260945" duration="3228000" />
+      <workItem from="1660167260945" duration="13079000" />
+      <workItem from="1660197835526" duration="5746000" />
     </task>
     <servers />
   </component>
