@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Medicines")
+@Table(name = "medicines")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Medicines {
