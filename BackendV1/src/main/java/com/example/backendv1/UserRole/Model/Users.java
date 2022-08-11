@@ -2,15 +2,13 @@ package com.example.backendv1.UserRole.Model;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay;
 import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -26,6 +24,7 @@ import java.util.Objects;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
+
 public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -78,13 +77,13 @@ public class Users {
     private Collection<HealthInformationByDay> healthInformationByDayCollection;
 
     //Luyen: Mapping with table DrugUsages
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
     private Collection<DrugDosages> drugDosagesCollection;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
