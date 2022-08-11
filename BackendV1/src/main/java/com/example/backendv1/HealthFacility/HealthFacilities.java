@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "health_facilities")
+@Table(name = "health_facilities" )
 @Getter
 @Setter
 @AllArgsConstructor@NoArgsConstructor

@@ -46,6 +46,9 @@ public class Users {
     @Column(name = "gender")
     private Short gender;
     @Basic
+    @Column(name = "image")
+    private String image;
+    @Basic
     @NotEmpty
     @Column(name = "name")
     private String name;
