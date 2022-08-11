@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.http.ResponseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Optional;
 
 @Entity
 @Table(name = "user_roles", schema = "dbo", catalog = "healthmanage")

@@ -78,13 +78,7 @@ public class Users {
         this.drugDosagesCollection = drugDosagesCollection;
     }
 
-    public Collection<MedicalHistory> getMedicalHistoryCollection() {
-        return medicalHistoryCollection;
-    }
 
-    public void setMedicalHistoryCollection(Collection<MedicalHistory> medicalHistoryCollection) {
-        this.medicalHistoryCollection = medicalHistoryCollection;
-    }
 
     //Luyen: Mapping with table MedicalHistory
 //    @OneToOne

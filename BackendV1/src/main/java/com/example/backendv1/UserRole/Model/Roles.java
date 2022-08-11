@@ -29,7 +29,7 @@ public class Roles {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
-    @OneToMany(mappedBy = "rolesByRoleId")
+    @OneToMany(mappedBy = "rolesByRoleId",fetch =FetchType.EAGER)
     private Collection<UserRoles> userRolesById;
 
     public short getId() {
