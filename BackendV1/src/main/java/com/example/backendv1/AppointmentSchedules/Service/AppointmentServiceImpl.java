@@ -27,6 +27,10 @@ public class AppointmentServiceImpl implements AppointmentService{
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
                 Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        System.out.println("===================");
+        System.out.println("===================");
+        System.out.println("===================");
+        System.out.println("===================");
         return appointmentRepository.findAll(pageable);
     }
 
