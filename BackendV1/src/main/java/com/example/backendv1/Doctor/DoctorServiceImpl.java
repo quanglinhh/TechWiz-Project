@@ -21,7 +21,7 @@ public class DoctorServiceImpl implements DoctorService{
 
     @Override
     public Page<Doctors> getAllDoctor(int pageNo, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return doctorRepository.findAll(pageable);
     }
 

@@ -3,6 +3,9 @@ package com.example.backendv1.AppointmentSchedules.Service;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +19,12 @@ public class AppointmentServiceImpl implements AppointmentService{
     @Override
     public List<AppointmentSchedules> listAll() {
         return appointmentRepository.findAll();
+    }
+
+    @Override
+    public Page<AppointmentSchedules> listAllByPage(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return appointmentRepository.findAll(pageable);
     }
 
     @Override

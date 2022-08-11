@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-@Controller
+@RestController
 @CrossOrigin("*")
 @RequestMapping("/api/doctor")
 public class DoctorController {
     @Autowired
     DoctorService doctorService;
     @GetMapping({"/get-all", "get-all/{pageNo}"})
-    public ResponseEntity<Page<Doctors>> getAllDoctor(@PathVariable Integer pageNo){
+    public ResponseEntity<Page<Doctors>> getAllDoctor(@PathVariable(required = false) Integer pageNo){
         int pageSize = 20;
         Page<Doctors> doctorList;
         if (pageNo != null){

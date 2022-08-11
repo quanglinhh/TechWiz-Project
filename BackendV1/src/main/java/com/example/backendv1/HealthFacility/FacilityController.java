@@ -1,24 +1,21 @@
 package com.example.backendv1.HealthFacility;
 
-import com.example.backendv1.Specialist.Specialists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
-@Controller
-@CrossOrigin("*")
+@RestController
+@CrossOrigin
 @RequestMapping("/api/facility")
 public class FacilityController {
     @Autowired
     FacilityService facilityService;
 
-    @GetMapping({"/get-all", "/get-all/{pageNo}"})
+    @GetMapping({"", "/{pageNo}"})
     public ResponseEntity<Page<HealthFacilities>> getAllFacility(@PathVariable(required = false) Integer pageNo) {
         Page<HealthFacilities> listByPage;
         int pageSize = 20;
@@ -33,7 +30,7 @@ public class FacilityController {
         return new ResponseEntity<>(listByPage, HttpStatus.OK);
     }
 
-    @GetMapping("/get-by-id/{id}")
+    @GetMapping("/getById/{id}")
     public ResponseEntity<HealthFacilities> getFacilityById(@PathVariable("id") Long id) {
         Optional<HealthFacilities> healthFacility = facilityService.getHealthFacilityById(id);
         return healthFacility.map(healthFacilities -> new ResponseEntity<>(healthFacilities, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));

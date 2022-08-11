@@ -3,6 +3,7 @@ package com.example.backendv1.AppointmentSchedules.Controller;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,15 +16,20 @@ public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
 
-    @GetMapping("/get-all")
-    public ResponseEntity<List<AppointmentSchedules>> index() {
-        List<AppointmentSchedules> appointmentSchedulesLists = appointmentService.listAll();
-
-        if(appointmentSchedulesLists.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+    @GetMapping({"/get-all", "/get-all/{pageNo}"})
+    public ResponseEntity<Page<AppointmentSchedules>> getAll(@PathVariable(required = false) Integer pageNo) {
+        int pageSize = 20;
+        Page<AppointmentSchedules> appointmentSchedulesLists;
+        if(pageNo != null) {
+            appointmentSchedulesLists = appointmentService.listAllByPage(pageNo, pageSize);
+        } else {
+            appointmentSchedulesLists = appointmentService.listAllByPage(1, pageSize);
         }
 
-        return new ResponseEntity<List<AppointmentSchedules>>(appointmentSchedulesLists, HttpStatus.OK);
+        if(appointmentSchedulesLists.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(appointmentSchedulesLists, HttpStatus.OK);
     }
 
     @PostMapping("/save")
@@ -75,5 +81,4 @@ public class AppointmentController {
         appointmentService.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
 }

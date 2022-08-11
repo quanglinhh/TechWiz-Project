@@ -1,4 +1,5 @@
 package com.example.backendv1.UserRole.Model;
+import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.MedicalHistory.Model.MedicalHistory;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -67,6 +68,12 @@ public class Users {
     @ToString.Exclude
     @JsonIgnore
     private Collection<DrugDosages> drugDosagesCollection;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<AppointmentSchedules> appointmentSchedules;
 
     public Collection<DrugDosages> getDrugDosagesCollection() {
         return drugDosagesCollection;

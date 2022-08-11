@@ -1,11 +1,14 @@
 package com.example.backendv1.Doctor;
+import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.HealthFacility.HealthFacilities;
-import com.example.backendv1.Specialist.Specialists;
+import com.example.backendv1.MedicalHistory.Specialist.Specialists;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -46,6 +49,12 @@ public class Doctors {
     @ToString.Exclude
     private HealthFacilities healthFacilities;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<AppointmentSchedules> appointmentSchedules;
+
     @Basic
     @Column(name = "gender")
     private byte gender;
@@ -72,7 +81,6 @@ public class Doctors {
     @Override
     public int hashCode() {
         int result = 31 + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (int) (specialityId ^ (specialityId >>> 32));
         result = 31 * result + (image != null ? image.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         return result;

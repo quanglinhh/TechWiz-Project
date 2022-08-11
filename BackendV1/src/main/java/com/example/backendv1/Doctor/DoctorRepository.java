@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctors,Long> {
-    Page<Doctors> listByPage(Pageable pageable);
+    Page<Doctors> findAll(Pageable pageable);
 }

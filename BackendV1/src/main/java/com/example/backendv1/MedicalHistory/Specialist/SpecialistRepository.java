@@ -1,4 +1,4 @@
-package com.example.backendv1.Specialist;
+package com.example.backendv1.MedicalHistory.Specialist;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -20,7 +20,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public Page<HealthFacilities> getAllHealthFacilities(int pageNo, int pageSize) {
-        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return healthFacilityRepo.findAll(pageable);
     }
 

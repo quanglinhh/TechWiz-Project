@@ -20,7 +20,7 @@ public class AppointmentStatusController {
         List<AppointmentStatus> appointmentStatusLists = appointmentStatusService.listAll();
 
         if(appointmentStatusLists.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity<List<AppointmentStatus>>(appointmentStatusLists, HttpStatus.OK);

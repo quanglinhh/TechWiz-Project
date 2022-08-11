@@ -1,7 +1,5 @@
-package com.example.backendv1.Specialist;
+package com.example.backendv1.MedicalHistory.Specialist;
 
-
-import com.example.backendv1.Doctor.Doctors;
 
 import java.util.List;
 import java.util.Optional;

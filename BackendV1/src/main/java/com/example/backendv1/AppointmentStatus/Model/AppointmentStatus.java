@@ -27,7 +27,7 @@ public class AppointmentStatus {
     private String name;
 
     @Basic
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private Date createdAt;
 

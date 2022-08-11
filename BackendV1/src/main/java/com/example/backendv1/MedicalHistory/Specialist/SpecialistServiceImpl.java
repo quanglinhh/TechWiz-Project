@@ -1,8 +1,5 @@
-package com.example.backendv1.Specialist;
+package com.example.backendv1.MedicalHistory.Specialist;
 
-import com.example.backendv1.Doctor.DoctorRepository;
-import com.example.backendv1.Doctor.DoctorService;
-import com.example.backendv1.Doctor.Doctors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
