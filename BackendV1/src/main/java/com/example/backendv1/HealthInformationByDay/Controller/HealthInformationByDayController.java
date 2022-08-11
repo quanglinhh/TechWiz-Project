@@ -137,11 +137,11 @@ public class HealthInformationByDayController {
 
     // get all by weight asc
     @RequestMapping(value = "/healthInformation/weightAsc", method = RequestMethod.GET)
-    public ResponseEntity getAllByWeightAsc(){
+    public ResponseEntity<List<HealthInformationByDay>> getAllByWeightAsc(){
         List<HealthInformationByDay> healthInformationByDays
                 = healthInformationByDayService.getAllHealthInformationOrderByWeightAsc();
         if (healthInformationByDays.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<HealthInformationByDay>>(healthInformationByDays,HttpStatus.OK);
     }

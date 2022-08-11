@@ -45,7 +45,7 @@ public class DrugDosagesController {
         return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "/{id}")
     ResponseEntity<DrugDosages> updateDrugDosages(@PathVariable long id, @RequestBody DrugDosages drugDosages){
         int i = drugDosagesService.updateDrugDosages(id, drugDosages);
         if(i == 1){

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"
+<!--      xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{layout/layoutindex}">>-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertt">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="insertt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="insert">
+                        <div>
+                            <label>userID</label>
+                            <input type="text" name="user-id">
+                        </div>
+                        <div>
+                            <label>medicine</label>
+                            <input type="text" name="medicine-id">
+                        </div>
+                        <div>
+                            <label>timeDay</label>
+                            <input type="text" name="time-day">
+                        </div>
+                        <div>
+                            <label>time-week</label>
+                            <input type="text" name="time-week">
+                        </div>
+                        <div>
+                            <label>quantity</label>
+                            <input type="text" name="quantity">
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="insert()">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Age</th>
+            <th scope="col">Medicine name</th>
+            <th scope="col">Medicine note</th>
+            <th scope="col">time Per Day</th>
+            <th scope="col">time Per Week</th>
+            <th scope="col">action</th>
+        </tr>
+        </thead>
+        <tbody id="showData">
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">update</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="updateFrom">
+                        <input id="id-drug" type="hidden">
+                        <div>
+                            <label>UserID</label>
+                            <input id="userID" type="text">
+                        </div>
+                        <div>
+                            <label>name</label>
+                            <input id="user-name" type="text">
+                        </div>
+                        <div>
+                            <label>age</label>
+                            <input id="user-age" type="number">
+                        </div>
+                        <div>
+                            <label>email</label>
+                            <input id="user-email" type="email">
+                        </div>
+                        <div>
+                            <label>gender</label>
+                            <select id="user-gender">
+                                <option id="default-age"></option>
+                                <option value="1">name</option>
+                                <option value="0">nữ</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>phone</label>
+                            <input id="user-phone" type="text">
+                        </div>
+                        <div>
+                            <label>username</label>
+                            <input id="username" type="text">
+                        </div>
+                        <div>
+                            <label>medicine name</label>
+                            <input id="medicine-name" type="text">
+                        </div>
+                        <div>
+                            <label>medicine note</label>
+                            <input id="medicine-node" type="text">
+                        </div>
+                        <div>
+                            <label>time per day</label>
+                            <input id="timePerDay" type="number">
+                        </div>
+                        <div>
+                            <label>time per week</label>
+                            <input id="timPerWeek" type="number">
+                        </div>
+                        <div>
+                            <label>quantity</label>
+                            <input id="quantity" type="number">
+                        </div>
+                        <input type="hidden" id="medicine-id">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="updateWithId()">Save changes</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function () {
+        var htmlContent = '';
+        $.ajax({
+            type: "GET",
+            url: "/drug-dosage",
+            dataType: "json",
+            cache: false,
+            success: function (response) {
+                for (let i = 0; i < response.content.length; i++) {
+                    htmlContent += "<tr>";
+                    htmlContent += "<th>" + (i + 1) + "</th>";
+                    htmlContent += "<td>" + response.content[i].user.name + "</td>";
+                    htmlContent += "<td>" + response.content[i].user.email + "</td>";
+                    htmlContent += "<td>" + response.content[i].user.gender + "</td>";
+                    htmlContent += "<td>" + response.content[i].user.phone + "</td>";
+                    htmlContent += "<td>" + response.content[i].user.age + "</td>";
+                    htmlContent += "<td>" + response.content[i].medicine.name + "</td>";
+                    htmlContent += "<td>" + response.content[i].medicine.note + "</td>";
+                    htmlContent += "<td>" + response.content[i].timePerDay + "</td>";
+                    htmlContent += "<td>" + response.content[i].timePerWeek + "</td>";
+                    htmlContent += "<td><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#updateModal\" onclick='loadData(" + response.content[i].id + ")' >update</button>";
+                    htmlContent += "<button type=\"button\" class=\"btn btn-danger\" onclick='deleteWithId(" + response.content[i].id + ")' >delete</button>";
+
+                    htmlContent += "</td></tr>"
+                    $("#showData").html(htmlContent)
+                }
+            },
+            error: function (err) {
+                alert("false :")
+            }
+        });
+    });
+
+    function updateWithId() {
+        let id = $("#id-drug").val();
+        let formData = {
+            // user:{
+            //     id: $('#userID').val(),
+            //     age : $("#user-age").val(),
+            //     email : $('#user-email').val(),
+            //     gender : $('#user-gender').val(),
+            //     name : $('#user-name').val(),
+            //     phone:  $('#user-phone').val(),
+            //     username: $('#username').val(),
+            // },
+            // // medicine :{
+            //     id : $('#medicine-id').val(),
+            //     name : $('#medicine-name').val(),
+            //     note : $('#medicine-node').val(),
+            //
+            // },
+            timePerDay: $('#timePerDay').val(),
+            timePerWeek: $('#timPerWeek').val(),
+            quantity: $('#quantity').val()
+        }
+
+        $.ajax({
+            type: "PUT",
+            url: "/drug-dosage/" + id,
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(formData),
+            success: function (response) {
+                alert("update success ")
+            },
+            error: function (err) {
+                alert("false :")
+            }
+        });
+    }
+
+
+    function insert() {
+
+        let insertData = {
+            user: {
+                id: $('input[name=user-id]').val()
+            },
+            medicine: {
+                id: $('input[name=medicine-id]').val()
+            },
+            timePerDay: $('input[name=time-day]').val(),
+            timePerWeek: $('input[name=time-week]').val(),
+            quantity: $('input[name=quantity]').val()
+        }
+        $.ajax({
+            type: "POST",
+            url: "/drug-dosage",
+            dataType: "json",
+            contentType: "application/json",
+            data: insertData,
+            success: function (response) {
+                alert("insert success ")
+            },
+            error: function (err) {
+                alert("false :" + err.responseJSON.message)
+            }
+        })
+    };
+
+    function loadData(id) {
+        $.ajax({
+            type: "GET",
+            url: "/drug-dosage/" + id,
+            dataType: "json",
+            cache: false,
+            success: function (response) {
+                $("#id-drug").val(response.id);
+                $("#userID").val(response.user.id);
+                $("#user-name").val(response.user.name);
+                $("#username").val(response.user.username);
+                $("#user-age").val(response.user.age);
+                $("#user-phone").val(response.user.phone);
+                $("#default-age").val(response.user.gender);
+                $("#user-email").val(response.user.email);
+                $("#medicine-name").val(response.medicine.name);
+                $("#medicine-node").val(response.medicine.note);
+                $("#timePerDay").val(response.timePerDay);
+                $("#timPerWeek").val(response.timePerWeek);
+                $("#quantity").val(response.quantity);
+                $("#medicine-id").val(response.medicine.id);
+            },
+            error: function (err) {
+                alert("false :")
+            }
+        });
+    }
+
+    function deleteWithId(id) {
+        $.ajax({
+            type: "DELETE",
+            url: "/drug-dosage/" + id,
+            cache: false,
+            success: function (data) {
+                alert("success : ");
+            },
+            error: function (err) {
+                alert("false :")
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
