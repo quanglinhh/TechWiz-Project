@@ -1,4 +1,7 @@
-package com.example.backendv1.Model;
+package com.example.backendv1.Specialist;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -13,9 +16,11 @@ public class Specialists {
     @Column(name = "name")
     private String name;
     @Basic
+    @CreationTimestamp
     @Column(name = "created_at")
     private Date createdAt;
     @Basic
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
 
