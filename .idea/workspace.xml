@@ -1,31 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cf637290-ee2f-4979-bdf6-b15da18d80d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/Model/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackendV1/src/main/java/com/example/backendv1/Model/Roles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Footer/Footer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/GlobalStyle/GlobalStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/GlobalStyle/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/AccountItem/AccountItem.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/AccountItem/Suggestions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/AccountItem/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Popper/Wapper.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Popper/Wrapper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/Search/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/Header/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignIn/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Components/SignUp/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/About/About.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Contact/Contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/Count/count.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/booking.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/home.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/image/bg_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Home/image/bg_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Nopage/404.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/Page/Nopage/Nopage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/client_react/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/client_react/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2D9ekdJ2HwHmA3Nnl0yDWIhkWzh" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/TechWiz-Project/BackendV1&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hai05/TechWiz-Project&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src" />
+      <recent name="C:\Users\hai05\TechWiz-Project\FrontEnd\client_react\src\Components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,10 +103,28 @@
       <updated>1660115871893</updated>
       <workItem from="1660115873173" duration="8000" />
       <workItem from="1660117974462" duration="10000" />
+      <workItem from="1660145136522" duration="693000" />
+      <workItem from="1660146769272" duration="4997000" />
+      <workItem from="1660160206241" duration="6044000" />
+      <workItem from="1660167260945" duration="205000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

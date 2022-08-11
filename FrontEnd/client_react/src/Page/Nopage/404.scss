@@ -1,0 +1,39 @@
+.not_found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 880px) {
+  .not_found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 150px;
+      height: 150px;
+    }
+    div {
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .not_found {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    img {
+
+      width: 100px;
+      height: 100px;
+    }
+    div {
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+}

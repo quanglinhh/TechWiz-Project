@@ -1,0 +1,41 @@
+.signin {
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  label {
+    padding: 10px 0;
+  }
+}
+
+.input-signin {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  caret-color: #ff3300;
+}
+
+.sign-form {
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.sign-btn {
+  background: #f1bc68;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: bold;
+  &:hover {
+
+  }
+}
+error {
+  color:#ff3300;
+  font-size: 1.3rem;
+}
+::placeholder {
+  font-size: 1.3rem;
+  color:#7D88B6
+}
