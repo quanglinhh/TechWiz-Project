@@ -1,5 +1,6 @@
 package com.example.backendv1.Doctor;
 
+import com.example.backendv1.HealthFacility.HealthFacilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -61,4 +62,17 @@ public class DoctorServiceImpl implements DoctorService{
         }
         return null;
     }
+
+    @Override
+    public List<Doctors> findDoctorByFalcility(HealthFacilities facility) {
+
+        return doctorRepository.findAllByHealthFacilities(facility);
+    }
+
+    @Override
+    public Doctors findByDoctorName(String name) {
+        return doctorRepository.findByName(name);
+    }
+
+
 }

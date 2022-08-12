@@ -1,6 +1,7 @@
 package com.example.backendv1.Doctor;
 
 
+import com.example.backendv1.HealthFacility.HealthFacilities;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -13,4 +14,8 @@ public interface DoctorService {
     void addDoctor(Doctors doctor);
     public boolean  deleteDoctor(Long id);
     public Doctors updateDoctor(Long id, Doctors doctor);
+
+    List<Doctors> findDoctorByFalcility(HealthFacilities facility);
+
+    Doctors findByDoctorName(String name);
 }

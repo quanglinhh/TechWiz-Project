@@ -15,4 +15,9 @@ public interface FacilityService {
     int addHealthFacility(HealthFacilities healthFacility);
     int deleteHealthFacility(Long id);
     int updateHealthFacility (Long id, HealthFacilities healthFacility);
+    HealthFacilities findFacilitiesIdByName(String name);
+
+    List<HealthFacilities> finFacilityByAddress(String address);
+
+
 }

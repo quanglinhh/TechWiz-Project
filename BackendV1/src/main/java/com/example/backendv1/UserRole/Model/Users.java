@@ -77,16 +77,16 @@ public class Users {
     private Collection<HealthInformationByDay> healthInformationByDayCollection;
 
     //Luyen: Mapping with table DrugUsages
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
     private Collection<DrugDosages> drugDosagesCollection;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToMany(mappedBy = "user")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
+//    @JsonIgnore
     private Collection<AppointmentSchedules> appointmentSchedules;
 
 
@@ -217,5 +217,29 @@ public class Users {
 
     public void setUserRolesById(Collection<UserRoles> userRolesById) {
         this.userRolesById = userRolesById;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Collection<HealthInformationByDay> getHealthInformationByDayCollection() {
+        return healthInformationByDayCollection;
+    }
+
+    public void setHealthInformationByDayCollection(Collection<HealthInformationByDay> healthInformationByDayCollection) {
+        this.healthInformationByDayCollection = healthInformationByDayCollection;
+    }
+
+    public Collection<AppointmentSchedules> getAppointmentSchedules() {
+        return appointmentSchedules;
+    }
+
+    public void setAppointmentSchedules(Collection<AppointmentSchedules> appointmentSchedules) {
+        this.appointmentSchedules = appointmentSchedules;
     }
 }

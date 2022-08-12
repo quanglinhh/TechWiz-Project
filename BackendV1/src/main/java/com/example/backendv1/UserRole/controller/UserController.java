@@ -1,6 +1,5 @@
 package com.example.backendv1.UserRole.controller;
 
-import com.example.backendv1.UserRole.Model.UserRoles;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/users")

@@ -1,9 +1,12 @@
 package com.example.backendv1.Doctor;
+
+import com.example.backendv1.HealthFacility.FacilityService;
+import com.example.backendv1.HealthFacility.FacilityServiceImpl;
+import com.example.backendv1.HealthFacility.HealthFacilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +18,22 @@ import java.util.Optional;
 public class DoctorController {
     @Autowired
     DoctorService doctorService;
+    @Autowired
+    FacilityService facilityService;
+
+    @GetMapping("facilityName/{name}")
+    public List<Doctors> getDotorNameByFacilityName(@PathVariable("name") String name){
+        HealthFacilities facility = facilityService.findFacilitiesIdByName(name);
+        List<Doctors> doctors = doctorService.findDoctorByFalcility(facility);
+        return doctors;
+    }
+
+    @GetMapping("/bookDoctorForm/user/{id}")
+    public List<HealthFacilities> bookDoctorForm(@PathVariable("id") Long id){
+        List<HealthFacilities> healthFacilities = facilityService.getAllHealthFacility();
+        return healthFacilities;
+    }
+
     @GetMapping({"/get-all", "get-all/{pageNo}"})
     public ResponseEntity<Page<Doctors>> getAllDoctor(@PathVariable(required = false) Integer pageNo, @RequestParam(value = "sortField", required = false) String sortField, @RequestParam(value = "sortDir", required = false) String sortDir){
         int pageSize = 20;

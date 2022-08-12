@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,6 +15,12 @@ import java.util.Optional;
 public class FacilityController {
     @Autowired
     FacilityService facilityService;
+    @GetMapping("/address/{address}")
+    public List<HealthFacilities> findFacilityByAddress(@PathVariable("address") String address){
+        return facilityService.finFacilityByAddress(address);
+
+    }
+
 
     @GetMapping({"", "/{pageNo}"})
     public ResponseEntity<Page<HealthFacilities>> getAllFacility(@PathVariable(required = false) Integer pageNo) {

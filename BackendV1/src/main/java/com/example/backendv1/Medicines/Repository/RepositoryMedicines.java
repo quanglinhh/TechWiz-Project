@@ -1,6 +1,6 @@
-package com.example.backendv1.UserRole.Model.Medicines.Repository;
+package com.example.backendv1.Medicines.Repository;
 
-import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
+import com.example.backendv1.Medicines.Model.Medicines;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

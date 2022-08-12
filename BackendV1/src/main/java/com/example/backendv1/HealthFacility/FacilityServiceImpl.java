@@ -6,7 +6,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -63,4 +65,17 @@ public class FacilityServiceImpl implements FacilityService {
         }
         return 0;
     }
+
+    @Override
+    public HealthFacilities findFacilitiesIdByName(String name) {
+        HealthFacilities facility = healthFacilityRepo.findHealthFacilitiesByName(name);
+        return facility;
+    }
+
+    @Override
+    public List<HealthFacilities> finFacilityByAddress(String address) {
+        List<HealthFacilities> facility = healthFacilityRepo.findHealthFacilitiesByAddress(address);
+        return facility;
+    }
+
 }

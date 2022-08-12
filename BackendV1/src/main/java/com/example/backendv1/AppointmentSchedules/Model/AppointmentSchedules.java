@@ -3,6 +3,7 @@ package com.example.backendv1.AppointmentSchedules.Model;
 import com.example.backendv1.AppointmentStatus.Model.AppointmentStatus;
 import com.example.backendv1.Doctor.Doctors;
 import com.example.backendv1.UserRole.Model.Users;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
@@ -39,6 +40,7 @@ public class AppointmentSchedules {
 
     @Basic
     @Column(name = "time")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date time;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -50,11 +52,13 @@ public class AppointmentSchedules {
     @Basic
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
 
     @Basic
     @Column(name = "updated_at")
     @UpdateTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
 
     public AppointmentSchedules() {
