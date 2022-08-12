@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add drug dosage for user</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        Hello this is a drug form
+
+        <form th:action="@{/web/save}" method="post" th:object="${addDrug}">
+            <div class="form-group">
+                <input type="hidden" th:value="${userID}" name="idUser" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>ID Drug</label>
+                <select id="medicine">
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" class="form-control" placeholder="Quantity" id="quantity">
+            </div>
+            <div class="form-group">
+                <label>Times per day</label>
+                <input type="text" class="form-control" id="timeDay"  placeholder="Times per day">
+            </div>
+            <div class="form-group">
+                <label>Times per week</label>
+                <input type="text" class="form-control" id="timeWeek" placeholder="Times per week">
+            </div>
+
+            <button type="button" onclick="insert()" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            var htmlContent = '';
+            $.ajax({
+                type: "GET",
+                url: "/medicines",
+                dataType: "json",
+                cache: false,
+                success: function (response) {
+                    for (let i = 0; i < response.content.length; i++) {
+                       htmlContent += "<option value="+response.content[i].id+">"+response.content[i].name+"</option>"
+                        $("#medicine").html(htmlContent)
+                    }
+                },
+                error: function (err) {
+                    alert("false :")
+                }
+            });
+        });
+
+        function insert() {
+            let insertData = {
+                user: {
+                    id: $("input[name=idUser]").val()
+                },
+                medicine: {
+                    id: $('#medicine').val()
+                },
+                timePerDay: $('input[id=timeDay]').val(),
+                timePerWeek: $('input[id=timPerWeek]').val(),
+                quantity: $('input[id=quantity]').val()
+            }
+            $.ajax({
+                type: "POST",
+                url: "/drug-dosage",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(insertData),
+                success: function (response) {
+                    alert("insert success ")
+                },
+                error: function (err) {
+                    alert("false :" + err.responseJSON.message)
+                }
+            })
+        }
+    </script>
+</body>
+</html>

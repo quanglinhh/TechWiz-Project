@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface DrugDosagesService {
     public List<DrugDosages> getAllDrugDosages();
+    public List<DrugDosages> getAllDrugDosagesByUserId(long id);
     public Page<DrugDosages> getAllDrugDosagesByPage(int pageNo, int pageSize);
     public Optional<DrugDosages> getDrugDosagesById(long id);
     public int addDrugDosages(DrugDosages drugDosages);
