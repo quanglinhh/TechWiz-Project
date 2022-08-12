@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/indexxx}">
 <head >
-    <title>List Employees</title>
+    <title>Appointment Manager</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -23,7 +25,7 @@
 
 <body>
 
-<div class="container">
+<div class="container" layout:fragment="content">
     <h2>Appointment List</h2>
     <hr/>
 
@@ -34,16 +36,17 @@
             <th>Address</th>
             <th>Facility</th>
             <th>Doctor</th>
+            <th>Action</th>
         </tr>
         </thead>
-
                             <tr th:each="app: ${appointments}">
                                 <td th:text="${app.getTime()}"></td>
                                 <td th:text="${app.getDoctor().getHealthFacilities().getAddress()}"></td>
                                 <td th:text="${app.getDoctor().getHealthFacilities().getName()}"></td>
+                                <td th:text="${app.getDoctor().getName()}"></td>
                                 <td>
-                                    <a th:href="@{/showUpdateForm(userId=${user.id})}" class="btn btn-info">Update</a>
-                                    <a th:href="@{/deleteUser(userId=${user.id})}" class="btn btn-danger ml-2">Delete</a>
+                                    <a th:href="@{/updateAppointmentForm(appId=${app.id})}" class="btn btn-info">Update</a>
+                                    <a  th:href="@{/updateAppointmentForm(appId=${app.id})}" class="btn btn-danger ml-2">Delete</a>
                                 </td>
 
                             </tr>
@@ -51,7 +54,7 @@
     </table>
     <!--Btn ADD-->
     <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#exampleModal" data-whatever="@mdo">Add new user
+            data-target="#exampleModal" data-whatever="@mdo">Add new appointment
     </button>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -95,3 +98,6 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>

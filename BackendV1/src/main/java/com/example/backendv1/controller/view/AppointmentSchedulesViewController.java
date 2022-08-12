@@ -12,10 +12,7 @@ import com.example.backendv1.UserRole.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.List;
@@ -47,6 +44,18 @@ public class AppointmentSchedulesViewController {
         List<AppointmentSchedules> appointments = appointmentService.findByUser(user);
         model.addAttribute("appointments",appointments);
         return "/appointmentSchedules/appointmentSchedule";
+    }
+
+    @GetMapping ("updateAppointmentForm")
+    public String updateAppointmentForm(Model model,@RequestParam Long appId){
+        AppointmentSchedules appointment = appointmentService.findById(appId).get();
+        model.addAttribute("appointment",appointment);
+        return "user/editUser";
+    }
+    @GetMapping("deleteAppointment")
+    public String deleteAppointment(@RequestParam Long appId){
+        appointmentService.deleteById(appId);
+        return "redirect:/bookDoctorForm/user/"+appId;
     }
 }
 
