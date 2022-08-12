@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DrugDosagesServiceImpl implements DrugDosagesService{
@@ -17,6 +18,11 @@ public class DrugDosagesServiceImpl implements DrugDosagesService{
     @Override
     public List<DrugDosages> getAllDrugDosages() {
         return drugDosagesRepository.findAll();
+    }
+
+    @Override
+    public List<DrugDosages> getAllDrugDosagesByUserId(long id) {
+        return drugDosagesRepository.findAll().stream().filter(s -> s.getUser().getId()== id).collect(Collectors.toList());
     }
 
     @Override

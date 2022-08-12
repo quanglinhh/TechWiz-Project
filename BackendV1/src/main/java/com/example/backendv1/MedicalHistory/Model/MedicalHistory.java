@@ -13,7 +13,7 @@ import java.util.Objects;
 @Entity
 
 
-@Table(name = "medical_history", schema = "dbo")
+@Table(name = "medical_history")
 
 @Getter
 @Setter

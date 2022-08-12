@@ -24,7 +24,7 @@ public class Medicines {
     @Column(name = "id")
     private long id;
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
     @Basic
     @Column(name = "note")
@@ -106,5 +106,10 @@ public class Medicines {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

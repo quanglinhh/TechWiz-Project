@@ -3,10 +3,11 @@ package com.example.backendv1.HealthInformationByDay.Controller;
 import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay;
 import com.example.backendv1.HealthInformationByDay.Service.HealthInformationByDayService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +20,7 @@ public class HealthInformationByDayController {
     //Add
     @RequestMapping(value = "/healthInformation", method = RequestMethod.POST)
     public ResponseEntity<HealthInformationByDay> saveHealthInformationByDay (
-            @RequestBody HealthInformationByDay healthInformationByDay){
+              @RequestBody HealthInformationByDay healthInformationByDay){
         healthInformationByDayService.saveHealthInformationByDay(healthInformationByDay);
         return ResponseEntity.ok(healthInformationByDay);
     }
@@ -57,7 +58,6 @@ public class HealthInformationByDayController {
              oldHealthInformationByDay.setGlucoseLevel(healthInformationByDay.getGlucoseLevel());
              oldHealthInformationByDay.setBloodType(healthInformationByDay.getBloodType());
              oldHealthInformationByDay.setNote(healthInformationByDay.getNote());
-             oldHealthInformationByDay.setCreatedAt(healthInformationByDay.getCreatedAt());
              oldHealthInformationByDay.setUpdatedAt(healthInformationByDay.getUpdatedAt());
          }
 
@@ -199,5 +199,14 @@ public class HealthInformationByDayController {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<HealthInformationByDay>>(healthInformationByDays,HttpStatus.OK);
+    }
+
+
+    @GetMapping("/page")
+    public Object getPage(@RequestParam("page")Optional<Integer> page , @RequestParam("size")Optional<Integer> size ){
+        int currentPage = page.orElse(1);
+        int pageSize = size.orElse(5);
+        Page<HealthInformationByDay> healthInformationByDayPage = healthInformationByDayService.paginationPage(PageRequest.of(currentPage-1,pageSize));
+        return healthInformationByDayPage ;
     }
 }

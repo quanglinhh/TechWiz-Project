@@ -3,10 +3,15 @@ package com.example.backendv1.DrugDosages.Model;
 import com.example.backendv1.Medicines.Model.Medicines;
 import com.example.backendv1.UserRole.Model.Users;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+
+
+
 @Table(name = "drug_dosages")
 
 @Getter
@@ -20,13 +25,13 @@ public class DrugDosages {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id") // thông qua khóa ngoại address_id
+    @JoinColumn(name = "user_id", nullable = false) // thông qua khóa ngoại address_id
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "medicine_id") // thông qua khóa ngoại address_id
+    @JoinColumn(name = "medicine_id", nullable = false) // thông qua khóa ngoại address_id
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Medicines medicine;
@@ -41,10 +46,11 @@ public class DrugDosages {
     @Column(name = "quantity")
     private int quantity;
     @Basic
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
+    @CreationTimestamp
     private Date createdAt;
     @Basic
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", updatable = true)
     private Date updatedAt;
 
 }

@@ -6,10 +6,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/drug-dosage")
+@RequestMapping(path = "drug-dosage")
 public class DrugDosagesController {
     @Autowired
     DrugDosagesService drugDosagesService;
@@ -44,7 +45,7 @@ public class DrugDosagesController {
         return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "/{id}")
     ResponseEntity<DrugDosages> updateDrugDosages(@PathVariable long id, @RequestBody DrugDosages drugDosages){
         int i = drugDosagesService.updateDrugDosages(id, drugDosages);
         if(i == 1){
@@ -53,7 +54,7 @@ public class DrugDosagesController {
         return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "{id}")
     ResponseEntity<DrugDosages> deleteDrugDosages(@PathVariable long id){
         int i = drugDosagesService.deleteDrugDosages(id);
         if(i == 1){

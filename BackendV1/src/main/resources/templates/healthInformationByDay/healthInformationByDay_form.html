@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layoutindex}">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthInformation Management</title>
+    <link rel="stylesheet" src="https://cdn.usebootstrap.com/bootstrap/4.6.0/css/bootstrap.min.css">
+
+</head>
+<body>
+<section class="mt-3" layout:fragment="content">
+
+        <h1 style="text-align: center">Create New HealthInformation</h1>
+        <hr>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form action="#" th:action="@{/saveHealthInformationByDay}" th:object="${healthInformationByDay}" method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}" />
+        <div class="from-group">
+            <label>User Name: </label>
+            <select th:field="*{user}" class="form-control h-30" >
+                <th:block th:each="users : ${usersList}">
+                    <option  th:text="${users.name}" th:value="${users.id}" ></option>
+                </th:block>
+            </select>
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></div>-->
+        </div>
+        <br>
+        <div class="form-group"> <label>Blood Pressure</label>
+            <input type="text" class="form-control" th:field="*{bloodPressure}" />
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bloodPressure')}" th:errors="*{bloodPressure}"></div>-->
+        </div>
+        <div class="form-group"> <label>Weight</label>
+            <input type="number" step="0.1" class="form-control" th:field="*{weight}" />
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div>-->
+        </div>
+        <div class="form-group"> <label>Glucose Level</label>
+            <input type="number" step="0.1" class="form-control" th:field="*{glucoseLevel}" />
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('glucoseLevel')}" th:errors="*{glucoseLevel}"></div>-->
+        </div>
+        <div class="form-group"> <label>Blood Type</label>
+            <input type="text" class="form-control" th:field="*{bloodType}" />
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bloodType')}" th:errors="*{bloodType}"></div>-->
+        </div>
+        <div class="form-group">
+            <label>Note</label> <input type="text" class="form-control" th:field="*{note}" />
+            <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('note')}" th:errors="*{note}"> </div>-->
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+
+        <a style="margin-left: 460px;" th:href="@{/healthInformationByDay/healthInformationByDays}" class="btn btn-primary active" role="button">Back</a>
+    </form>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+    </div>
+</section>
+</body>
+</html>

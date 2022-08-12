@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layoutindex}" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>HealthInformation Management</title>
+  <link rel="stylesheet" src="https://cdn.usebootstrap.com/bootstrap/4.6.0/css/bootstrap.min.css">
+    <style>
+        nav ul li .active{
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #ffffff !important;
+        }
+
+        nav ul li a{
+             color: #007bff !important;
+        }
+
+        table th {
+            text-align: center;
+            font-size: 14px;
+            color: black;
+        }
+    </style>
+</head>
+<body layout:fragment="content">
+
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">-->
+<!--    new Health Information-->
+<!--</button>-->
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form action="#" th:action="@{/saveHealthInformationByDay}" th:object="${healthInformationByDayPage}" method="POST" novalidate="novalidate">-->
+<!--                    <input type="hidden" th:field="*{id}" />-->
+<!--                    <div class="from-group">-->
+<!--                        <label>User Name: </label>-->
+<!--                        <select th:field="*{user}" class="form-control h-25" >-->
+<!--                            <th:block th:each="users : ${usersList}">-->
+<!--                                <option  th:text="${users.name}" th:value="${users.id}" ></option>-->
+<!--                            </th:block>-->
+<!--                        </select>-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <div class="form-group"> <label>Blood Pressure</label>-->
+<!--                        <input type="text" class="form-control" th:field="*{bloodPressure}" />-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bloodPressure')}" th:errors="*{bloodPressure}"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="form-group"> <label>Weight</label>-->
+<!--                        <input type="number" step="0.1" class="form-control" th:field="*{weight}" />-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="form-group"> <label>Glucose Level</label>-->
+<!--                        <input type="number" step="0.1" class="form-control" th:field="*{glucoseLevel}" />-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('glucoseLevel')}" th:errors="*{glucoseLevel}"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="form-group"> <label>Blood Type</label>-->
+<!--                        <input type="text" class="form-control" th:field="*{bloodType}" />-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bloodType')}" th:errors="*{bloodType}"></div>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label>Note</label> <input type="text" class="form-control" th:field="*{note}" />-->
+<!--                        &lt;!&ndash;                    <div class="alert alert-warning" th:if="${#fields.hasErrors('note')}" th:errors="*{note}"> </div>&ndash;&gt;-->
+<!--                    </div>-->
+
+<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--                    <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<section>
+  <br>
+  <div class="container main-content list">
+    <div class="row">
+      <a th:href="@{/showHealthInformationByDayForm}" class="btn btn-primary pull-left"> Add new Health Information </a>
+    </div>
+      <div class="row mt-3">
+          <table border="1" class="table table-bordered table-hover table-striped text-center" id="tableData">
+              <thead>
+              <th>
+                  No
+              </th>
+              <th>
+                  User Name
+              </th>
+              <th>
+                  Blood Pressure
+              </th>
+              <th>
+                  Weight
+              </th>
+              <th>
+                  Glucose Level
+              </th>
+              <th>
+                  Blood Type
+              </th>
+              <th>
+                  Note
+              </th>
+              <th>
+                  Create_at
+              </th>
+              <th>
+                  Update_at
+              </th>
+              <th>Action </th>
+              </thead>
+              <tbody>
+              <tr th:each="healthInformationByDayPage, iStat : ${healthInformationByDayPage.content}">
+                  <td th:text="${healthInformationByDayPage.id}" ></td>
+                  <td th:text="${healthInformationByDayPage.user.name}"></td>
+                  <td th:text="${healthInformationByDayPage.bloodPressure}"></td>
+                  <td th:text="${healthInformationByDayPage.weight}" ></td>
+                  <td th:text="${healthInformationByDayPage.bloodType}"></td>
+                  <td th:text="${healthInformationByDayPage.glucoseLevel}"></td>
+                  <td th:text="${healthInformationByDayPage.note}" ></td>
+                  <td th:text="${healthInformationByDayPage.createdAt}"></td>
+                  <td th:text="${healthInformationByDayPage.updatedAt}"></td>
+                  <td>
+                      <a th:href="@{/showFormUpdateHealthInformation/{id}(id=${healthInformationByDayPage.id})}" class="btn btn-primary">Update</a>
+                      &nbsp;
+                      <a th:href="@{/deleteHealthInformation/{id}(id=${healthInformationByDayPage.id})}" class="btn btn-danger">Delete</a>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+          <nav aria-label="Page navigation example">
+              <ul class="pagination">
+<!--                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>-->
+                  <li class="page-item" th:if="${healthInformationByDayPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                      <a th:href="@{/healthInformationByDay/healthInformationByDays(size=${healthInformationByDayPage.size}, page=${pageNumber})}" th:text="${pageNumber}" th:class="${pageNumber==healthInformationByDayPage.number + 1} ? active" th:classappend="page-link"></a>
+                  </li>
+<!--                  <li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+              </ul>
+          </nav>
+      </div>
+
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+
+
+
+  $(document).ready(function (){
+    $("#top-search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tableData tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+
+
+    /*$("#myTableTest").DataTable({
+      "ajax": '../api/v1/healthInformation',
+      columns: [
+        {data: "bloodPressure"},
+        {data: "weight"},
+        {data: "glucoseLevel"},
+        {data: "bloodType"},
+      ]
+    });*/
+  });
+
+</script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+</body>
+</html>

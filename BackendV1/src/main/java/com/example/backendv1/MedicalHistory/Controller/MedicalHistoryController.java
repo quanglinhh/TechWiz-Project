@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "medical-history")
+@RequestMapping(path = "/medical-history")
 public class MedicalHistoryController {
     @Autowired
     MedicalHistoryService medicalHistoryService;
