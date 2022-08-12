@@ -12,6 +12,6 @@ public interface DrugDosagesService {
     public Page<DrugDosages> getAllDrugDosagesByPage(int pageNo, int pageSize);
     public Optional<DrugDosages> getDrugDosagesById(long id);
     public int addDrugDosages(DrugDosages drugDosages);
-    public int updateDrugDosages(long id, DrugDosages drugDosages);
+    public DrugDosages updateDrugDosages(long id, DrugDosages drugDosages);
     public int deleteDrugDosages(long id);
 }

@@ -4,9 +4,10 @@ import com.example.backendv1.Medicines.Model.Medicines;
 import com.example.backendv1.UserRole.Model.Users;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-
+import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+import java.util.Objects;
 
 @Entity
 
@@ -37,13 +38,13 @@ public class DrugDosages {
     private Medicines medicine;
 
     @Basic
-    @Column(name = "time_per_day")
+    @Column(name = "time_per_day", nullable = false)
     private String timePerDay;
     @Basic
-    @Column(name = "time_per_week")
+    @Column(name = "time_per_week", nullable = false)
     private String timePerWeek;
     @Basic
-    @Column(name = "quantity")
+    @Column(name = "quantity", nullable = false)
     private int quantity;
     @Basic
     @Column(name = "created_at", updatable = false)
@@ -51,6 +52,20 @@ public class DrugDosages {
     private Date createdAt;
     @Basic
     @Column(name = "updated_at", updatable = true)
+    @UpdateTimestamp
     private Date updatedAt;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DrugDosages that = (DrugDosages) o;
+        return  this.getUser().getId() == that.getUser().getId()
+                && this.getMedicine().getId() == that.getMedicine().getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, medicine);
+    }
 }

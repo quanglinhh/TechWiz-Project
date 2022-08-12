@@ -58,6 +58,24 @@ public class DrugDosagesController2 {
         else if (sortField.equals("quantity") && dir.equals("desc")){
             listAll = listAll.stream().sorted((s1, s2) -> (int) (s2.getQuantity() - s1.getQuantity())).collect(Collectors.toList());
         }
+        else if (sortField.equals("perday") && dir.equals("asc")){
+            listAll = listAll.stream().sorted((s1, s2) -> Integer.parseInt((s1.getTimePerDay())) - Integer.parseInt(s2.getTimePerDay())).collect(Collectors.toList());
+        }
+        else if (sortField.equals("perday") && dir.equals("desc")){
+            listAll = listAll.stream().sorted((s1, s2) -> Integer.parseInt((s2.getTimePerDay())) - Integer.parseInt(s1.getTimePerDay())).collect(Collectors.toList());
+        }
+        else if (sortField.equals("perweek") && dir.equals("asc")){
+            listAll = listAll.stream().sorted((s1, s2) -> Integer.parseInt((s1.getTimePerWeek())) - Integer.parseInt(s2.getTimePerWeek())).collect(Collectors.toList());
+        }
+        else if (sortField.equals("perweek") && dir.equals("desc")){
+            listAll = listAll.stream().sorted((s1, s2) -> Integer.parseInt((s2.getTimePerWeek())) - Integer.parseInt(s1.getTimePerWeek())).collect(Collectors.toList());
+        }
+//        else if (sortField.equals("created") && dir.equals("asc")){
+//            listAll = listAll.stream().sorted((s1, s2) -> s1.getCreatedAt().compareTo(s2.getCreatedAt())).collect(Collectors.toList());
+//        }
+//        else if (sortField.equals("created") && dir.equals("desc")){
+//            listAll = listAll.stream().sorted((s1, s2) -> s2.getCreatedAt().compareTo(s1.getCreatedAt())).collect(Collectors.toList());
+//        }
         model.addAttribute("listAll", listAll);
         model.addAttribute("idUser", idUser);
         return "DrugDoseUsage/drugdose2";

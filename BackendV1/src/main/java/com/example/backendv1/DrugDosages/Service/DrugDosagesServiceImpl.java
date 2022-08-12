@@ -6,6 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -47,16 +50,22 @@ public class DrugDosagesServiceImpl implements DrugDosagesService{
     }
 
     @Override
-    public int updateDrugDosages(long id, DrugDosages drugDosages) {
-        Optional<DrugDosages> found = drugDosagesRepository.findById(id);
-        if(found.isPresent()){
-            found.get().setQuantity(drugDosages.getQuantity());
-            found.get().setTimePerDay(drugDosages.getTimePerDay());
-            found.get().setTimePerWeek(drugDosages.getTimePerWeek());
-            drugDosagesRepository.save(drugDosages);
-            return 1;
-        }
-        return 0;
+    public DrugDosages updateDrugDosages(long id, DrugDosages newDrugDosages) {
+
+
+
+        DrugDosages found = drugDosagesRepository.findById(id).map(drug ->{
+            drug.setTimePerDay(newDrugDosages.getTimePerDay());
+            drug.setTimePerWeek(newDrugDosages.getTimePerWeek());
+            drug.setQuantity(newDrugDosages.getQuantity());
+            drug.setUpdatedAt( Date.from(Instant.now()));
+            drugDosagesRepository.save(drug);
+            return drugDosagesRepository.save(drug);
+        }).orElseGet(()->{
+            newDrugDosages.setId(id);
+            return drugDosagesRepository.save(newDrugDosages);
+        });
+       return found;
     }
 
     @Override

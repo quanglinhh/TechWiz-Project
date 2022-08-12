@@ -47,11 +47,7 @@ public class DrugDosagesController {
 
     @PutMapping(path = "/{id}")
     ResponseEntity<DrugDosages> updateDrugDosages(@PathVariable long id, @RequestBody DrugDosages drugDosages){
-        int i = drugDosagesService.updateDrugDosages(id, drugDosages);
-        if(i == 1){
-            return new ResponseEntity<>(drugDosages, HttpStatus.OK);
-        }
-        return  new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return  ResponseEntity.status(HttpStatus.OK).body(drugDosagesService.updateDrugDosages(id,drugDosages));
     }
 
     @DeleteMapping(path = "{id}")
