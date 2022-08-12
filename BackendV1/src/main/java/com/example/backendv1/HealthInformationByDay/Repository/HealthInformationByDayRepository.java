@@ -4,6 +4,7 @@ import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,5 +31,8 @@ public interface HealthInformationByDayRepository extends JpaRepository<HealthIn
     public List<HealthInformationByDay> findAllByOrderByBloodTypeDesc();
     public List<HealthInformationByDay> findHealthInformationByBloodType(String bloodType);
 
+
+    @Query("select count(h) from HealthInformationByDay h where h.id = ?1")
+    Long countById();
 
 }
