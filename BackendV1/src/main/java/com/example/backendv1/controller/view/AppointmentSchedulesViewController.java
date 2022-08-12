@@ -41,6 +41,12 @@ public class AppointmentSchedulesViewController {
         return "appointmentSchedules/BookingCare";
     }
 
-    
+    @GetMapping("/Appointment/user/{id}")
+    public String appointmentForm(@PathVariable("id") Long id, Model model){
+        Users user = userService.getUserById(id).get();
+        List<AppointmentSchedules> appointments = appointmentService.findByUser(user);
+        model.addAttribute("appointments",appointments);
+        return "/appointmentSchedules/appointmentSchedule";
+    }
 }
 

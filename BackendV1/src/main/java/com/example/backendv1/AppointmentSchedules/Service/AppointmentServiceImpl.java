@@ -2,6 +2,7 @@ package com.example.backendv1.AppointmentSchedules.Service;
 
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Repository.AppointmentRepository;
+import com.example.backendv1.UserRole.Model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -48,4 +49,11 @@ public class AppointmentServiceImpl implements AppointmentService{
     public void deleteById(Long id) {
         appointmentRepository.deleteById(id);
     }
+
+    @Override
+    public List<AppointmentSchedules> findByUser(Users users) {
+        return appointmentRepository.findByUser(users);
+    }
+
+
 }

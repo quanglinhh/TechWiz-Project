@@ -37,10 +37,10 @@
         </tr>
         </thead>
 
-                            <tr th:each="user: ${lsUser}">
-                                <td th:text="${user.getName()}"></td>
-                                <td th:text="${user.getEmail()}"></td>
-                                <td th:text="${user.getPhone()}"></td>
+                            <tr th:each="app: ${appointments}">
+                                <td th:text="${app.getTime()}"></td>
+                                <td th:text="${app.getDoctor().getHealthFacilities().getAddress()}"></td>
+                                <td th:text="${app.getDoctor().getHealthFacilities().getName()}"></td>
                                 <td>
                                     <a th:href="@{/showUpdateForm(userId=${user.id})}" class="btn btn-info">Update</a>
                                     <a th:href="@{/deleteUser(userId=${user.id})}" class="btn btn-danger ml-2">Delete</a>

@@ -2,9 +2,9 @@ package com.example.backendv1.DrugDosages.Controller;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
 import com.example.backendv1.DrugDosages.Service.DrugDosagesService;
-import com.example.backendv1.MedicalHistory.Service.MedicalHistoryService;
-import com.example.backendv1.UserRole.Model.Medicines.Model.Medicines;
-import com.example.backendv1.UserRole.Model.Medicines.Service.MedicinesService;
+
+import com.example.backendv1.Medicines.Model.Medicines;
+import com.example.backendv1.Medicines.Service.MedicinesService;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;

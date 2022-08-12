@@ -14,7 +14,7 @@ import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
 
 @Entity
-@Table(name = "health_information_by_day", schema = "dbo", catalog = "HealthManage")
+@Table(name = "health_information_by_day", schema = "dbo", catalog = "healthmanage")
 @Getter
 @Setter
 @AllArgsConstructor
