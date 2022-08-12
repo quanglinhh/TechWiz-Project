@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/index}"
 >
 <head>
     <meta charset="UTF-8">
@@ -8,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<div layout:fragment="content" class="container">
     <button class="btn btn-outline-dark mt-5">
         <a th:href="@{'/web/addDrugForm/' + ${idUser}}">Add drug form</a>
     </button>

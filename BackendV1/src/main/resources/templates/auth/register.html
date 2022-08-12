@@ -27,66 +27,36 @@
         <p class="text-muted mb-3">Don't have an account? Create your account, it takes less than a minute</p>
 
         <!-- form -->
-        <form action="" method="post">
+        <form th:action="@{/process_register}" method="post" th:object="${users}">
           <div class="form-group">
             <label>User Name</label>
-            <input class="form-control" type="text" name="name" placeholder="Enter your name">
+            <input class="form-control" type="text" th:field="*{username}" placeholder="Enter your name">
           </div>
           <div class="form-group">
             <label>Email address</label>
-            <input class="form-control" type="email" name="email" placeholder="Enter your email">
+            <input class="form-control" type="email" th:field="*{email}" placeholder="Enter your email">
           </div>
           <div class="form-group">
             <label>Password</label>
-            <input class="form-control" type="password" name="password" placeholder="Enter your password">
+            <input class="form-control" type="password" th:field="*{password}" placeholder="Enter your password">
           </div>
-          <div class="form-group">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="checkbox-signup">
-              <label class="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" class="text-muted">Terms and Conditions</a></label>
-            </div>
+          <div class="form-group mb-3">
+
           </div>
           <div class="form-group mb-0 text-center">
             <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-account-circle"></i> Sign Up </button>
           </div>
-          <!-- social-->
-          <div class="text-center mt-4">
-            <p class="text-muted font-16">Sign up using</p>
-            <ul class="social-list list-inline mt-3">
-              <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
-              </li>
-            </ul>
-          </div>
         </form>
-        <!-- end form-->
 
-        <!-- Footer-->
         <footer class="footer footer-alt">
           <p class="text-muted">Already have account? <a th:href="@{/login}" class="text-muted ml-1"><b>Log In</b></a></p>
         </footer>
-
       </div>
     </div>
   </div>
 
-  <div class="auth-fluid-right text-center">
-    <div class="auth-user-testimonial">
-      <h2 class="mb-3">I love u</h2>
-      <p class="lead"><i class="mdi mdi-format-quote-open"></i> Nước xanh thì trôi theo dòng </br> Cho a xin hỏi 3 vòng của em <i class="mdi mdi-format-quote-close"></i></p>
-      <p>
-        - By bạn giấu tên -
-      </p>
-    </div>
+  <div class="auth-fluid-right text-center p-0">
+    <img th:src="@{images/backgr_login.jpg}" class="w-100 h-100">
   </div>
 </div>
 

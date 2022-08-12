@@ -24,10 +24,10 @@ public class DrugDosagesController2 {
     @Autowired private MedicinesService medicinesService;
     @GetMapping(path = "/drug")
     public String getAll(){
-        return "DrugDoseUsage/drugdosage";
+        return "DrugDoseUsage/drugdose";
     }
 
-    @GetMapping(path = "/{idUser}/drug2")
+    @GetMapping(path = "/drug2/{idUser}")
     public String getAll2(Model model, @PathVariable long idUser){
         List<DrugDosages> listAll = drugDosagesService.getAllDrugDosagesByUserId(idUser);
         listAll.forEach(System.out::println);

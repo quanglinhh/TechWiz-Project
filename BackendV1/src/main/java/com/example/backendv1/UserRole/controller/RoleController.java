@@ -17,10 +17,10 @@ public class RoleController {
     @Autowired
     RoleServiceImp roleService;
 
-    @GetMapping("/{role}")
-    public ResponseEntity<Roles> getRoleByName(@PathVariable("role") String name){
-        return roleService.findByName(name);
-    }
+//    @GetMapping("/{role}")
+//    public ResponseEntity<Roles> getRoleByName(@PathVariable("role") String name){
+//        return roleService.findByName(name);
+//    }
 
     @GetMapping
     public ResponseEntity<List<Roles>> getAll(){

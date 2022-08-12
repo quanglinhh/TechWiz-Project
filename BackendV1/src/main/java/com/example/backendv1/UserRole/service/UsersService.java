@@ -21,5 +21,11 @@ public interface UsersService {
 
     Users saveUser(Users user);
 
+    void save(Users users);
+
+    Boolean existsByUsername(String username);
+
+    Boolean existsByEmail(String email);
+
 
 }

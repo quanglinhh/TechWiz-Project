@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layoutindex}">
+      layout:decorate="~{layout/index}">
 <head>
     <meta charset="UTF-8">
     <title>HealthInformation Management</title>
@@ -19,16 +19,6 @@
         <div class="col-md-6">
             <form action="#" th:action="@{/saveHealthInformationByDay}" th:object="${healthInformationByDay}" method="POST" novalidate="novalidate">
                 <input type="hidden" th:field="*{id}" />
-                <div class="from-group">
-                    <label>User Name: </label>
-                    <select th:field="*{user}" class="form-control h-30" >
-                        <th:block th:each="users : ${usersList}">
-                            <option  th:text="${users.name}" th:value="${users.id}" ></option>
-                        </th:block>
-                    </select>
-                    <!--<div class="alert alert-warning" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></div>-->
-                </div>
-                <br>
                 <div class="form-group"> <label>Blood Pressure</label>
                     <input type="text" class="form-control" th:field="*{bloodPressure}" />
 <!--                    <div class="alert alert-warning" th:if="${#fields.hasErrors('bloodPressure')}" th:errors="*{bloodPressure}"></div>-->

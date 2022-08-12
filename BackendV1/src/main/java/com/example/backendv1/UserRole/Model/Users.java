@@ -9,18 +9,21 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Data
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -38,7 +41,7 @@ public class Users {
     @Column(name = "created_at")
     private Date createdAt;
     @Basic
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "email")
     private String email;
     @Basic
@@ -48,11 +51,11 @@ public class Users {
     @Column(name = "image")
     private String image;
     @Basic
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "name")
     private String name;
     @Basic
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "password")
     private String password;
     @Basic
@@ -64,12 +67,18 @@ public class Users {
     private Date updatedAt;
 
     @Basic
-    @NotEmpty
+//    @NotEmpty
     @Column(name = "username")
     private String username;
     @JsonIgnore
     @OneToMany(mappedBy = "usersByUserId")
     private Collection<UserRoles> userRolesById;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Roles> roles = new HashSet<>();
 
 
 

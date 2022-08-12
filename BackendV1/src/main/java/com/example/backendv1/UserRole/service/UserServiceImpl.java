@@ -58,10 +58,6 @@ public class UserServiceImpl implements UsersService{
         return userRepository.save(usersUpdate);
     }
 
-
-
-
-
     @Override
     public Users saveUser(Users user) {
         UserRoles userRoles = new UserRoles();
@@ -70,11 +66,12 @@ public class UserServiceImpl implements UsersService{
         userRoles.setRolesByRoleId(role);
         Collection<UserRoles> userRolesCollection = new ArrayList<>();
         userRolesCollection.add(userRoles);
-        role.setUserRolesById(userRolesCollection);
+//        role.setUserRolesById(userRolesCollection);
         userRolesService.saveUserRole(userRoles);
 
         return userRepository.save(user);
     }
+
     @Override
     public void deleteUserById(Long id) {
         Users user = userRepository.findById(id).get();
@@ -82,6 +79,21 @@ public class UserServiceImpl implements UsersService{
             userRolesService.deleteUserRoleByUserById(user);
             userRepository.delete(user);
         }
+    }
+
+    @Override
+    public void save(Users users) {
+        userRepository.save(users);
+    }
+
+    @Override
+    public Boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    public Boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
 }

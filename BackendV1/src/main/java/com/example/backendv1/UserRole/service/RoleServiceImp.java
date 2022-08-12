@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoleServiceImp implements RoleService{
@@ -17,18 +18,28 @@ public class RoleServiceImp implements RoleService{
     @Autowired
     UserRolesServiceImp userRolesServiceImp;
 
+//    @Override
+//    public ResponseEntity<Roles> findByName(String name) {
+//        if(roleRepository.findByName(name.toUpperCase())==null){
+//            return (ResponseEntity<Roles>) ResponseEntity.badRequest();
+//        }
+//        return ResponseEntity.ok(roleRepository.findByName(name.toUpperCase()));
+//    }
+
+//    @Override
+//    public Roles findByRoleName(String name) {
+//        UserRoles userRoles = new UserRoles();
+//        return roleRepository.findByName(name);
+//    }
+
     @Override
-    public ResponseEntity<Roles> findByName(String name) {
-        if(roleRepository.findByName(name.toUpperCase())==null){
-            return (ResponseEntity<Roles>) ResponseEntity.badRequest();
-        }
-        return ResponseEntity.ok(roleRepository.findByName(name.toUpperCase()));
+    public Optional<Roles> findByName(String name) {
+        return roleRepository.findByName(name);
     }
 
     @Override
     public Roles findByRoleName(String name) {
-        UserRoles userRoles = new UserRoles();
-        return roleRepository.findByName(name);
+        return null;
     }
 
     @Override

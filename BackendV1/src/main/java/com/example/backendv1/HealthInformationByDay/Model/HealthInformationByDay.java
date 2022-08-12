@@ -7,14 +7,15 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.Max;
+//import javax.validation.constraints.Min;
+//import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotEmpty;
 import java.sql.Date;
 
 @Entity
-@Table(name = "health_information_by_day", schema = "dbo", catalog = "healthmanage")
+
+@Table(name = "health_information_by_day")
 @Getter
 @Setter
 @AllArgsConstructor

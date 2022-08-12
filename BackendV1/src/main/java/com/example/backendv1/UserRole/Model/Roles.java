@@ -1,6 +1,8 @@
 package com.example.backendv1.UserRole.Model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
@@ -8,6 +10,7 @@ import java.sql.Date;
 import java.util.Collection;
 
 @Entity
+@Data
 @Table(name = "roles")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -28,7 +31,10 @@ public class Roles {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private Date updatedAt;
-    @OneToMany(mappedBy = "rolesByRoleId" )
+
+
+    @OneToMany(mappedBy = "rolesByRoleId")
+    @JsonIgnore
     private Collection<UserRoles> userRolesById;
 
     public short getId() {
@@ -87,11 +93,4 @@ public class Roles {
         return result;
     }
 
-    public Collection<UserRoles> getUserRolesById() {
-        return userRolesById;
-    }
-
-    public void setUserRolesById(Collection<UserRoles> userRolesById) {
-        this.userRolesById = userRolesById;
-    }
 }

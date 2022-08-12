@@ -25,10 +25,12 @@ public class HealthInformationByDayControllerView {
     UsersService usersService;
 
     //get all
-    @GetMapping("/healthInformationByDay/healthInformationByDays" )
-    public String viewHealthInformationPage(Model model ,
-                                            @RequestParam("page")Optional<Integer> page,
-                                            @RequestParam("size")Optional<Integer> size){
+    @GetMapping("/healthInformationByDay")
+    public String viewHealthInformationPage(
+            Model model ,
+            @RequestParam("page")Optional<Integer> page,
+            @RequestParam("size")Optional<Integer> size
+    ){
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
         Page<HealthInformationByDay> healthInformationByDayPage = healthInformationByDayService.paginationPage(PageRequest.of(currentPage-1,pageSize));
@@ -42,11 +44,6 @@ public class HealthInformationByDayControllerView {
             model.addAttribute("pageNumbers",pageNumbers);
         }
 
-
-//        List<HealthInformationByDay> listHealthFormations = healthInformationByDayService.getAllHealthInformationByDay();
-//
-//        model.addAttribute("healthInformationByDays", listHealthFormations);
-
         return "healthInformationByDay/healthInformationByDays";
     }
 
@@ -57,16 +54,19 @@ public class HealthInformationByDayControllerView {
         List<Users> usersList = usersService.getAllUsers();
         model.addAttribute("healthInformationByDay", new HealthInformationByDay());
         model.addAttribute("usersList", usersList);
+
         return "healthInformationByDay/healthInformationByDay_form";
     }
 
     //save
     @PostMapping("/saveHealthInformationByDay")
-    public String saveHealthInformation(@ModelAttribute("healthInformationByDays")
-                                            @Valid HealthInformationByDay healthInformationByDay) {
+    public String saveHealthInformation(
+            @ModelAttribute("healthInformationByDays") HealthInformationByDay healthInformationByDay
+    ) {
         //save employee database
         healthInformationByDayService.saveHealthInformationByDay(healthInformationByDay);
-        return "redirect:/healthInformationByDay/healthInformationByDays";
+
+        return "redirect:/healthInformationByDay";
     }
 
     //Update
@@ -78,6 +78,7 @@ public class HealthInformationByDayControllerView {
         //set employee as a model attribute to pre-populate the form
         List<Users> usersList = usersService.getAllUsers();
         model.addAttribute("usersList", usersList);
+
         return "healthInformationByDay/healthInformationByDay_formUpdate";
     }
 
@@ -86,7 +87,7 @@ public class HealthInformationByDayControllerView {
     public String deleteClass(@PathVariable (value = "id") long id) {
         //call delete employee method
         this.healthInformationByDayService.deleteHealthInformationByDay(id);
-        return "redirect:/healthInformationByDay/healthInformationByDays";
+        return "redirect:/healthInformationByDay";
     }
 
 }

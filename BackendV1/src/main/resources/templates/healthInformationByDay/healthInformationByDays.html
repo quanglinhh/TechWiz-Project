@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/layoutindex}" xmlns="http://www.w3.org/1999/html">
+      layout:decorate="~{layout/index}" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>HealthInformation Management</title>
@@ -99,9 +99,6 @@
                   No
               </th>
               <th>
-                  User Name
-              </th>
-              <th>
                   Blood Pressure
               </th>
               <th>
@@ -127,7 +124,6 @@
               <tbody>
               <tr th:each="healthInformationByDayPage, iStat : ${healthInformationByDayPage.content}">
                   <td th:text="${healthInformationByDayPage.id}" ></td>
-                  <td th:text="${healthInformationByDayPage.user.name}"></td>
                   <td th:text="${healthInformationByDayPage.bloodPressure}"></td>
                   <td th:text="${healthInformationByDayPage.weight}" ></td>
                   <td th:text="${healthInformationByDayPage.bloodType}"></td>
