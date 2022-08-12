@@ -3,6 +3,7 @@ package com.example.backendv1.HealthInformationByDay.Service;
 import com.example.backendv1.DrugDosages.Model.DrugDosages;
 import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,9 +16,16 @@ public interface HealthInformationByDayService {
 
     void deleteHealthInformationByDay(Long id);
 
+    HealthInformationByDay getHealthInformationById(Long id);
+
     Optional<HealthInformationByDay> findHealthInformationByDayById(Long id);
 
     public HealthInformationByDay getOne(Long id);
+
+
+    Iterable<HealthInformationByDay> findAll();
+
+
 
     List<HealthInformationByDay> getAllHealthInformationOrderByBloodPressureDesc();
 
@@ -38,5 +46,6 @@ public interface HealthInformationByDayService {
     public List<HealthInformationByDay> findHealthInformationByGlucoseLevel(int glucoseLevel);
     public List<HealthInformationByDay> findHealthInformationByBloodType(String bloodType);
 
+    Page<HealthInformationByDay> paginationPage(Pageable pageable);
 
 }

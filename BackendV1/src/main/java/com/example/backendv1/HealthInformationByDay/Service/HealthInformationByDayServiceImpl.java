@@ -3,11 +3,10 @@ package com.example.backendv1.HealthInformationByDay.Service;
 import com.example.backendv1.HealthInformationByDay.Model.HealthInformationByDay;
 import com.example.backendv1.HealthInformationByDay.Repository.HealthInformationByDayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,15 +31,40 @@ public class HealthInformationByDayServiceImpl implements HealthInformationByDay
     }
 
     @Override
+    public HealthInformationByDay getHealthInformationById(Long id) {
+        Optional<HealthInformationByDay> optionalHealthInformation = healthInformationByDayRepository.findById(id);
+        HealthInformationByDay healthInformationByDay = null;
+        if (optionalHealthInformation.isPresent()) {
+            healthInformationByDay = optionalHealthInformation.get();
+        }else {
+            throw new RuntimeException("Class not found for id : "+id);
+        }
+        return healthInformationByDay;
+    }
+
+
+
+    @Override
     public Optional<HealthInformationByDay> findHealthInformationByDayById(Long id) {
         return healthInformationByDayRepository.findById(id);
     }
+
 
     @Override
     public HealthInformationByDay getOne(Long id) {
         return healthInformationByDayRepository.findById(id).get();
     }
 
+
+    @Override
+    public Iterable<HealthInformationByDay> findAll() {
+        return healthInformationByDayRepository.findAll();
+    }
+
+
+
+
+    //api
     @Override
     public List<HealthInformationByDay> getAllHealthInformationOrderByBloodPressureDesc() {
         return healthInformationByDayRepository.findAllByOrderByBloodPressureDesc();
@@ -101,5 +125,25 @@ public class HealthInformationByDayServiceImpl implements HealthInformationByDay
         return healthInformationByDayRepository.findHealthInformationByGlucoseLevel(glucoseLevel);
     }
 
+
+
+    public Page<HealthInformationByDay> paginationPage(Pageable pageable){
+        List<HealthInformationByDay> healthInformationByDayList = healthInformationByDayRepository.findAllByOrderByIdAsc();
+
+        int pageSize = pageable.getPageSize();
+        int currenPage = pageable.getPageNumber();
+        int startItem = currenPage * pageSize;
+        List<HealthInformationByDay> list ;
+
+        if (healthInformationByDayList.size() > startItem){
+            int toIndex = Math.min(startItem + pageSize , healthInformationByDayList.size());
+            list = healthInformationByDayList.subList(startItem, toIndex);
+        }else {
+            list = Collections.emptyList();
+        }
+
+        Page<HealthInformationByDay> healthInformationByDayPage = new PageImpl<>(list , PageRequest.of(currenPage , pageSize),healthInformationByDayList.size());
+        return healthInformationByDayPage;
+    }
 
 }
