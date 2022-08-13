@@ -1,7 +1,7 @@
 package com.example.backendv1.AppointmentSchedules.Controller;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
+import com.example.backendv1.AppointmentSchedules.Model.ResponseObject;
 import com.example.backendv1.AppointmentSchedules.Service.AppointmentService;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class AppointmentController {
 
     @GetMapping({"/get-all", "/get-all/{pageNo}"})
     public ResponseEntity<Page<AppointmentSchedules>> getAll(@PathVariable(required = false) Integer pageNo,
-                                                             @RequestParam(value = "sortField", required = false) String sortField,
+                                                             @RequestParam(value = "sortField", required = false) java.lang.String sortField,
                                                              @RequestParam(value = "sortDir", required = false) String sortDir
                                                              )
 
@@ -25,7 +25,7 @@ public class AppointmentController {
         int pageSize = 20;
         Page<AppointmentSchedules> appointmentSchedulesLists;
         if(pageNo != null && sortField != null && sortDir != null) {
-            appointmentSchedulesLists = appointmentService.listAllByPage(pageNo, pageSize, sortField, sortDir);
+            appointmentSchedulesLists = appointmentService.listAllByPage(pageNo, pageSize, sortField, java.lang.String.valueOf(sortDir));
         } else {
             appointmentSchedulesLists = appointmentService.listAllByPage(1, pageSize, "id", "desc");
         }
@@ -67,17 +67,20 @@ public class AppointmentController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<AppointmentSchedules> delete(
+    public ResponseEntity<ResponseObject> delete(
             @PathVariable(value = "id") Long id
     ) {
         Optional<AppointmentSchedules> appointmentSchedules = appointmentService.findById(id);
 
         if(appointmentSchedules.isPresent()) {
-            appointmentService.deleteById(id);
-            return ResponseEntity.notFound().build();
-        }
 
-        appointmentService.deleteById(id);
-        return ResponseEntity.ok().build();
+            if (appointmentService.deleteById(id) == true){
+                return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("true" , "Successfully canceled appointment",""));
+            }else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseObject("false" , "Appointments less than 2 days cannot be canceled" , ""));
+            }
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject("false" , "appoint ment not found !",""));
+        }
     }
 }

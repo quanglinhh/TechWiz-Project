@@ -21,9 +21,9 @@ public class DoctorController {
     @Autowired
     FacilityService facilityService;
 
-    @GetMapping("facilityName/{name}")
-    public List<Doctors> getDotorNameByFacilityName(@PathVariable("name") String name){
-        HealthFacilities facility = facilityService.findFacilitiesIdByName(name);
+    @GetMapping("facility/{name}")
+    public List<Doctors> getDoctorNameByFacilityName(@PathVariable("name") String name){
+        HealthFacilities facility = facilityService.findFacilitiesByName(name);
         List<Doctors> doctors = doctorService.findDoctorByFalcility(facility);
         return doctors;
     }

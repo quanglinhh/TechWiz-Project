@@ -3,7 +3,6 @@ package com.example.backendv1.controller.view;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.AppointmentSchedules.Service.AppointmentServiceImpl;
 import com.example.backendv1.Doctor.DoctorServiceImpl;
-import com.example.backendv1.Doctor.Doctors;
 import com.example.backendv1.HealthFacility.FacilityServiceImpl;
 import com.example.backendv1.HealthFacility.HealthFacilities;
 import com.example.backendv1.UserRole.Model.Users;
@@ -14,7 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -40,22 +42,23 @@ public class AppointmentSchedulesViewController {
 
     @GetMapping("/Appointment/user/{id}")
     public String appointmentForm(@PathVariable("id") Long id, Model model){
+        LocalDate getCurrentTime = LocalDate.now();
+        Date currentTime = java.sql.Date.valueOf(getCurrentTime);
         Users user = userService.getUserById(id).get();
         List<AppointmentSchedules> appointments = appointmentService.findByUser(user);
         model.addAttribute("appointments",appointments);
         return "/appointmentSchedules/appointmentSchedule";
     }
 
-    @GetMapping ("updateAppointmentForm")
-    public String updateAppointmentForm(Model model,@RequestParam Long appId){
-        AppointmentSchedules appointment = appointmentService.findById(appId).get();
-        model.addAttribute("appointment",appointment);
-        return "user/editUser";
-    }
-    @GetMapping("deleteAppointment")
-    public String deleteAppointment(@RequestParam Long appId){
-        appointmentService.deleteById(appId);
-        return "redirect:/bookDoctorForm/user/"+appId;
-    }
+
+//    @GetMapping("deleteAppointment")
+//    public String deleteAppointment(@RequestParam Long appId , Model model){
+//        String message = "";
+//        AppointmentSchedules appointmentSchedules = appointmentService.findById(appId).get();
+//        model.addAttribute("message",message);
+//        return "/appointmentSchedules/appointmentSchedule";
+
+
+//    }
 }
 

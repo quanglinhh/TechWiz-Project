@@ -13,4 +13,6 @@ import java.util.List;
 public interface AppointmentRepository extends JpaRepository<AppointmentSchedules, Long> {
     Page<AppointmentSchedules> findAll(Pageable pageable);
     List<AppointmentSchedules> findByUser(Users users);
+    List<AppointmentSchedules> findAllByOrderByTime();
+
 }

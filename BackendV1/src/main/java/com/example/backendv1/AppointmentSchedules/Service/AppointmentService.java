@@ -18,6 +18,6 @@ public interface AppointmentService {
 
     Optional<AppointmentSchedules> findById(Long id);
 
-    void deleteById(Long id);
+    boolean deleteById(Long id);
     List<AppointmentSchedules> findByUser(Users users);
 }

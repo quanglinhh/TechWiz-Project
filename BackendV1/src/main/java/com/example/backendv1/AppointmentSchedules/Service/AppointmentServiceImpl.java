@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,8 +48,16 @@ public class AppointmentServiceImpl implements AppointmentService{
     }
 
     @Override
-    public void deleteById(Long id) {
-        appointmentRepository.deleteById(id);
+    public boolean deleteById(Long id) {
+        AppointmentSchedules appointmentSchedules = appointmentRepository.findById(id).get();
+        Date dateNow = Date.from(Instant.now());
+        if (((appointmentSchedules.getTime().getTime()) - (dateNow.getTime()) >=172800000)){
+            appointmentRepository.deleteById(id);
+            return true;
+        }else {
+           return false;
+        }
+
     }
 
     @Override

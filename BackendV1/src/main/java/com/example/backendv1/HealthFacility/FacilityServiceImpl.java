@@ -67,7 +67,7 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public HealthFacilities findFacilitiesIdByName(String name) {
+    public HealthFacilities findFacilitiesByName(String name) {
         HealthFacilities facility = healthFacilityRepo.findHealthFacilitiesByName(name);
         return facility;
     }

@@ -3,8 +3,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/indexxx}">
 <head >
-    <title>Appointment Manager</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+    <title>List Employees</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
@@ -23,81 +23,67 @@
     </style>
 </head>
 
-<body>
+<body layout:fragment="content">
+<!---->
+<div class="container" style="margin-top: 100px" >
+    <div class="fix">
+        <h2>Appointment Manager</h2>
+        <hr/>
+        <!--    <div class="alert alert-danger" role="alert" th:text="*{message}"></div>-->
+        <table class="table table-bordered table-striped" id="appointment-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Address</th>
+                <th>Facility</th>
+                <th>Doctor</th>
+                <th>Action</th>
+            </tr>
+            </thead>
 
-<div class="container" layout:fragment="content">
-    <h2>Appointment List</h2>
-    <hr/>
+            <tr th:each="app: ${appointments}">
+                <td th:text="${app.getTime()}"></td>
+                <td th:text="${app.getDoctor().getHealthFacilities().getAddress()}"></td>
+                <td th:text="${app.getDoctor().getHealthFacilities().getName()}"></td>
+                <td th:text="${app.getDoctor().getName()}"></td>
+                <td>
+                    <button th:onclick=" 'deleteAppoint('+*{app.id}+')'" class="btn btn-danger ml-2">Cancel</button>
+                </td>
 
-    <table class="table table-bordered table-striped" id="tableBooking">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Address</th>
-            <th>Facility</th>
-            <th>Doctor</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-                            <tr th:each="app: ${appointments}">
-                                <td th:text="${app.getTime()}"></td>
-                                <td th:text="${app.getDoctor().getHealthFacilities().getAddress()}"></td>
-                                <td th:text="${app.getDoctor().getHealthFacilities().getName()}"></td>
-                                <td th:text="${app.getDoctor().getName()}"></td>
-                                <td>
-                                    <a th:href="@{/updateAppointmentForm(appId=${app.id})}" class="btn btn-info">Update</a>
-                                    <a  th:href="@{/updateAppointmentForm(appId=${app.id})}" class="btn btn-danger ml-2">Delete</a>
-                                </td>
+            </tr>
 
-                            </tr>
-
-    </table>
-    <!--Btn ADD-->
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#exampleModal" data-whatever="@mdo">Add new appointment
-    </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New user</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="recipient-email">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Phone:</label>
-                            <input type="text" class="form-control" id="recipient-phone">
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="saveUser" type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
-        </div>
+        </table>
+        <!--Btn ADD-->
+        <a type="button" class="btn btn-primary" data-toggle="modal" href="/bookDoctorForm/user/1"
+                data-target="#exampleModal" data-whatever="@mdo">Add appointment
+        </a>
     </div>
+
+
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.12.1/datatables.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#appointment-table").DataTable();
+    })
+
+    function  deleteAppoint(id){
+        $.ajax({
+            url: '/api/v1/appointment/delete/'+id,
+            dataType: "json",
+            type: "DELETE",
+            success: function (respon) {
+             alert("sss")
+                location.reload();
+            },
+            error: function (err) {
+                alert(err.responseJSON.message);
+            }
+        });
+    }
+</script>
+
 
 </body>
 </html>

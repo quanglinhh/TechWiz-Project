@@ -14,4 +14,6 @@ public interface FacilityRepository extends JpaRepository<HealthFacilities,Long>
         List<HealthFacilities> findHealthFacilitiesByAddress(String address);
 
 
+
+
 }
