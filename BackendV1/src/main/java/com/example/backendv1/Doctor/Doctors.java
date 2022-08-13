@@ -1,7 +1,7 @@
 package com.example.backendv1.Doctor;
 import com.example.backendv1.AppointmentSchedules.Model.AppointmentSchedules;
 import com.example.backendv1.HealthFacility.HealthFacilities;
-import com.example.backendv1.MedicalHistory.Specialist.Specialists;
+import com.example.backendv1.Specialist.Specialists;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

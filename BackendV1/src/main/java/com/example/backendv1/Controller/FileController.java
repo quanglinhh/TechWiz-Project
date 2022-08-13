@@ -1,4 +1,4 @@
-package com.example.backendv1.Controller;
+package com.example.backendv1.controller;
 
 
 import com.example.backendv1.Doctor.DoctorService;

@@ -1,4 +1,4 @@
-package com.example.backendv1.MedicalHistory.Specialist;
+package com.example.backendv1.Specialist;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

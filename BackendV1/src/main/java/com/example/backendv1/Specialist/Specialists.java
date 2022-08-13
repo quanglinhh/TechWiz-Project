@@ -1,4 +1,4 @@
-package com.example.backendv1.MedicalHistory.Specialist;
+package com.example.backendv1.Specialist;
 import com.example.backendv1.Doctor.Doctors;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;

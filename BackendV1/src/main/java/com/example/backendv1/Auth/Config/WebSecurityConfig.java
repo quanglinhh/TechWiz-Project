@@ -38,15 +38,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/","/api/*" ,"/css/**" , "/js/**" ,"/images/**" ,"/fonts/**" ,"/home" ,"/FE/**").permitAll();
-//        http.authorizeRequests().antMatchers("/css/**").permitAll();
-//        http.authorizeRequests().antMatchers("/js/**").permitAll();
-//        http.authorizeRequests().antMatchers("/images/**").permitAll();
-//        http.authorizeRequests().antMatchers("/fonts/**").permitAll();
-//        http.authorizeRequests().antMatchers("/").permitAll();
-//        http.authorizeRequests().antMatchers("/home").permitAll();
-//        http.authorizeRequests().antMatchers("/FE/*").permitAll();
-        http.authorizeRequests().antMatchers("/uploads/*").permitAll();
+        http.authorizeRequests().antMatchers("/api/**").permitAll();
+        http.authorizeRequests().antMatchers("/css/**").permitAll();
+        http.authorizeRequests().antMatchers("/js/**").permitAll();
+        http.authorizeRequests().antMatchers("/images/**").permitAll();
+        http.authorizeRequests().antMatchers("/fonts/**").permitAll();
+        http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/home").permitAll();
+        http.authorizeRequests().antMatchers("/FE/**").permitAll();
+        http.authorizeRequests().antMatchers("/uploads/**").permitAll();
+        http.authorizeRequests().antMatchers("/medicines").permitAll();
         http.authorizeRequests()
                 .antMatchers("/login", "/logout", "/register", "/process_register")
                 .permitAll();
@@ -54,7 +55,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 //        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
 //        http.authorizeRequests().antMatchers("/user").access("hasAnyRole('ROLE_ADMIN' , 'ROLE_USER')");
-
 
         http.authorizeRequests()
                 .anyRequest().authenticated()
