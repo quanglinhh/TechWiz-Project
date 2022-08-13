@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
+//<<<<<<< HEAD
 @RequestMapping("api/v1/users")
-@CrossOrigin
+//@CrossOrigin
+//=======
+//@RequestMapping("api/users")
+//>>>>>>> trung
 public class UserController {
     @Autowired
     UserServiceImpl userService;

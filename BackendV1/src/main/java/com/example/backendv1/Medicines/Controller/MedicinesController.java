@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/medicines")
+@RequestMapping(path = "/api/medicines")
+@CrossOrigin("*")
 public class MedicinesController {
     @Autowired
     MedicinesService medicinesService;
