@@ -96,4 +96,13 @@ public class UserServiceImpl implements UsersService{
         return userRepository.existsByEmail(email);
     }
 
+    @Override
+    public Optional<Users> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public Optional<Users> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }

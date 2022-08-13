@@ -1,15 +1,11 @@
 package com.example.backendv1.Auth;
 
 import com.example.backendv1.Auth.Common.Const;
-import com.example.backendv1.MailSender.MailSenderService;
 import com.example.backendv1.UserRole.Model.Roles;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.RoleService;
 import com.example.backendv1.UserRole.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +23,6 @@ public class AuthController {
 
     @Autowired
     RoleService roleService;
-
-    @Autowired
-    MailSenderService mailSenderService;
 
     @GetMapping("/login")
     public String login() {
@@ -83,11 +76,6 @@ public class AuthController {
 
     @GetMapping("/ok")
     public String ok() {
-        return "Auth/ok";
-    }
-
-    @GetMapping("")
-    public String home() {
         return "Auth/ok";
     }
 

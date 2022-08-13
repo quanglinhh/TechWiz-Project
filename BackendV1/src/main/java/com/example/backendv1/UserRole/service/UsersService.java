@@ -14,6 +14,8 @@ public interface UsersService {
 
     Optional<Users> getUserById(Long id);
 
+    Optional<Users> findByUsername(String username);
+
     Users updateUserById(Long id, Users users);
 
     void deleteUserById(Long id);
@@ -26,6 +28,8 @@ public interface UsersService {
     Boolean existsByUsername(String username);
 
     Boolean existsByEmail(String email);
+
+    Optional<Users> findByEmail(String email);
 
 
 }

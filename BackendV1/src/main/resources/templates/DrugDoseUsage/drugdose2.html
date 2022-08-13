@@ -2,32 +2,37 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/index}"
+      layout:decorate="~{layout/indexxx}"
 >
 <head>
     <meta charset="UTF-8">
     <title>All drug dosages</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-<div layout:fragment="content" class="container">
-    <button class="btn btn-outline-dark mt-5">
-        <a th:href="@{'/web/addDrugForm/' + ${idUser}}">Add drug form</a>
+<body layout:fragment="content">
+<div style="margin-top: 50px"  class="container">
+    <button class="btn btn-primary mt-5">
+        <a class="text-white" th:href="@{'/web/addDrugForm/' + ${idUser}}">Add drug form</a>
     </button>
     <br>
-    <br>
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
+    <div class="modal fade"
+         id="updateModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true"
+
+    >
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content"  >
                 <div class="modal-header text-center">
                     <h5 class="modal-title text-center" id="exampleModalLabel" style="margin: auto">Update</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="updateFrom">
+                <div class="modal-body d-flex justify-content-center">
+                    <form id="updateFrom" style="width: 60%"  class="text-center">
                         <input id="id-drug" type="hidden">
                        <input id="userID" type="hidden">
                         <div>
@@ -35,10 +40,6 @@
                                 <label>Medicine Name: </label>
                             </div>
                         </div>
-<!--                        <div>-->
-<!--                            <label>medicine note</label>-->
-<!--                            <div id="medicine-node" type="text"></div>-->
-<!--                        </div>-->
                         <div>
                             <label>Time Per Day</label>
                             <input id="timePerDay" type="number" class="form-control">
@@ -59,70 +60,80 @@
             </div>
         </div>
     </div>
-
-    <h3 class="text-center mb-3">Your daily medication dosage</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <td>
-                ID
-                <a th:text="'<'" th:href="@{/web/{id}/drug2/sort?sortField=id&sortDir=asc(id = ${idUser})}"></a>
-                <a th:text="'>'" th:href="@{/web/{id}/drug2/sort?sortField=id&sortDir=desc(id = ${idUser})}"></a>
-            </td>
-            <td>
-                Medicine name
-                <a th:text="'<'" th:href="@{/web/{id}/drug2/sort?sortField=medicine&sortDir=asc(id = ${idUser})}"></a>
-                <a th:text="'>'" th:href="@{/web/{id}/drug2/sort?sortField=medicine&sortDir=desc(id = ${idUser})}"></a>
-            </td>
-            <td>
-                Quantity
-                <a th:text="'<'" th:href="@{/web/{id}/drug2/sort?sortField=quantity&sortDir=asc(id = ${idUser})}"></a>
-                <a th:text="'>'" th:href="@{/web/{id}/drug2/sort?sortField=quantity&sortDir=desc(id = ${idUser})}"></a>
-            </td>
-            <td>
-                Time per day
-                <a th:text="'<'" th:href="@{/web/{id}/drug2/sort?sortField=perday&sortDir=asc(id = ${idUser})}"></a>
-                <a th:text="'>'" th:href="@{/web/{id}/drug2/sort?sortField=perday&sortDir=desc(id = ${idUser})}"></a>
-            </td>
-            <td>
-                Time per week
-                <a th:text="'<'" th:href="@{/web/{id}/drug2/sort?sortField=perweek&sortDir=asc(id = ${idUser})}"></a>
-                <a th:text="'>'" th:href="@{/web/{id}/drug2/sort?sortField=perweek&sortDir=desc(id = ${idUser})}"></a>
-            </td>
-            <td>Created time</td>
-            <td>Last update</td>
-            <td>Action</td>
-        </tr>
-        </thead>
-        <tbody>
-        <th:block th:each="drug : ${listAll}">
+    <div class="container-fluid">
+        <h3 class="text-center mb-3">Your daily medication dosage</h3>
+        <table class="table table-bordered" style=" box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;width: 100%">
+            <thead class="thead-light">
             <tr>
-                <td th:text="${drug.id}"></td>
-                <input type="hidden" th:value="${drug.id}" id="idDrugDose" />
-                <input type="hidden"  id="idUser" />
-<!--                <td th:each="da : "${drug.medicine}"></td>-->
-                <td th:text="${drug.medicine}"></td>
-                <td th:text="${drug.quantity}"></td>
-                <td th:text="${drug.timePerDay}"></td>
-                <td th:text="${drug.timePerWeek}"></td>
-                <td th:text="${#dates.format(drug.createdAt, 'dd-MMM-yyyy')}"></td>
-                <td th:text="${#dates.format(drug.updatedAt, 'dd-MMM-yyyy')}"></td>
                 <td >
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal"   th:onclick="'loadData('+ *{drug.id} +')'">edit</button>
-                    <button class="btn btn-danger" th:onclick="'deleteWithId('+ *{drug.id} +')'">X</button>
+                    ID
                 </td>
+                <td colspan="1">
+                    Medicine name
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=medicine&sortDir=asc(id = ${idUser})}"></a>
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=medicine&sortDir=desc(id = ${idUser})}"></a>
+                </td>
+                <td>
+                    Quantity
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=quantity&sortDir=asc(id = ${idUser})}"></a>
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=quantity&sortDir=desc(id = ${idUser})}"></a>
+                </td>
+                <td>
+                    Time per day
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=perday&sortDir=asc(id = ${idUser})}"></a>
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=perday&sortDir=desc(id = ${idUser})}"></a>
+                </td>
+                <td>
+                    Time per week
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=perweek&sortDir=asc(id = ${idUser})}"></a>
+                    <a th:text="''" th:href="@{/web/{id}/drug2/sort?sortField=perweek&sortDir=desc(id = ${idUser})}"></a>
+                </td>
+                <td>Created time</td>
+                <td>Last update</td>
+                <td style="width: 125px">Action</td>
             </tr>
-        </th:block>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <th:block th:each="drug, iter : ${listAll}">
+                <tr>
+                    <td th:text="${iter.index + 1}"></td>
+                    <input type="hidden" th:value="${drug.id}" id="idDrugDose" />
+                    <input type="hidden"  id="idUser" />
+                    <!--                <td th:each="da : "${drug.medicine}"></td>-->
+                    <td th:text="${drug.medicine}"></td>
+                    <td th:text="${drug.quantity}"></td>
+                    <td th:text="${drug.timePerDay}"></td>
+                    <td th:text="${drug.timePerWeek}"></td>
+                    <td th:text="${#dates.format(drug.createdAt, 'dd-MMM-yyyy')}"></td>
+                    <td th:text="${#dates.format(drug.updatedAt, 'dd-MMM-yyyy')}"></td>
+                    <td >
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal"   th:onclick="'loadData('+ *{drug.id} +')'">edit</button>
+                        <button class="btn btn-danger" th:onclick="'deleteWithId('+ *{drug.id} +')'">X</button>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Modal -->
+
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-</body>
-
-<script>
+<script layout:fragment="script">
     function deleteWithId(id) {
         $.ajax({
             type: "DELETE",
@@ -184,17 +195,7 @@
     }
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</body>
+
+
 </html>

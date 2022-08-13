@@ -47,8 +47,36 @@
           <li class="nav-item"><a th:href="@{/doctor}" class="nav-link">Doctors</a></li>
           <li class="nav-item"><a th:href="@{/blog}" class="nav-link">Blog</a></li>
           <li class="nav-item"><a th:href="@{/contact}" class="nav-link">Contact</a></li>
-          <li class="nav-item cta"><a class="nav-link" th:href="@{/login}"><span>Sign in</span></a></li>
-          <li class="nav-item cta"><a class="nav-link" th:href="@{/register}"><span>Sign up</span></a></li>
+
+          <li th:switch="${currentUserId}">
+            <ul class="d-flex mr-4" th:case="'0'">
+              <li class="nav-item cta" style="list-style: none"><a class="nav-link" th:href="@{/login}"><span>Sign in</span></a></li>
+              <li class="nav-item cta" style="list-style: none"><a class="nav-link" th:href="@{/register}"><span>Sign up</span></a></li>
+            </ul>
+
+            <ul th:case="*" class="dropdown show">
+              <li class="nav-item cta  "
+                  style="list-style: none">
+                <a class="btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                   th:href="@{/logout}">
+                  <img th:src="@{image}">
+                </a>
+                <li class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" th:href="@{'/user/' + ${currentUserId}}">Account</a>
+                  <a class="dropdown-item" th:href="@{/logout}">Sign out</a>
+                </li>
+              </li>
+            </ul>
+          </li>
+<!--          <li th:if="${currentUserId != 0}">-->
+<!--            <a class="nav-item cta"><a class="nav-link" th:href="@{/logout}"><span>Logout</span></a></a>-->
+<!--          </li>-->
+
+<!--          <li th:unless="${currentUserId != 0}">-->
+<!--            <li class="nav-item cta"><a class="nav-link" th:href="@{/login}"><span>Sign in</span></a></li>-->
+<!--            <li class="nav-item cta"><a class="nav-link" th:href="@{/register}"><span>Sign up</span></a></li>-->
+<!--          </li>-->
+
         </ul>
       </div>
     </div>
@@ -684,8 +712,7 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;
             <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
-            <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Triple
-              Dot</a>
+            <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">TripleDot</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>
