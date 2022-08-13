@@ -43,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/js/*").permitAll();
         http.authorizeRequests().antMatchers("/images/*").permitAll();
         http.authorizeRequests().antMatchers("/fonts/*").permitAll();
-        http.authorizeRequests().antMatchers("/*").permitAll();
+//        http.authorizeRequests().antMatchers("/*").permitAll();
+        http.authorizeRequests().antMatchers("/FE/*").permitAll();
         http.authorizeRequests()
                 .antMatchers("/login", "/logout", "/register", "/process_register")
                 .permitAll();
@@ -54,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginProcessingUrl("/j_spring_security_check")
                 .loginPage("/login")
-                .defaultSuccessUrl("/ok", true)
+                .defaultSuccessUrl("/home", true)
                 .failureUrl("/login?error=true")
                 .usernameParameter("email")
                 .passwordParameter("password")
