@@ -12,6 +12,11 @@ public class SpecialistServiceImpl implements SpecialistService {
     @Autowired
     private SpecialistRepository speciaListRepo;
     @Override
+    public int countSpecialist() {
+        return speciaListRepo.countList();
+
+    }
+    @Override
     public List<Specialists> getAllSpecialist() {
         return speciaListRepo.findAll();
     }
@@ -46,4 +51,5 @@ public class SpecialistServiceImpl implements SpecialistService {
         }
         return null;
     }
+
 }

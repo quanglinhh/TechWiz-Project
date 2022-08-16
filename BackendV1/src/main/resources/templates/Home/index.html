@@ -54,12 +54,12 @@
               <li class="nav-item cta" style="list-style: none"><a class="nav-link" th:href="@{/register}"><span>Sign up</span></a></li>
             </ul>
 
-            <ul th:case="*" class="dropdown show">
+            <ul th:case="*" class="dropdown show mt-1">
               <li class="nav-item cta  "
                   style="list-style: none">
                 <a class="btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                    th:href="@{/logout}">
-                  <img th:src="@{image}">
+                  <span th:text="${name}"></span>
                 </a>
                 <li class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" th:href="@{'/user/' + ${currentUserId}}">Account</a>

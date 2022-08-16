@@ -67,4 +67,9 @@ public class MedicinesController {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+    @GetMapping("count-all")
+    public ResponseEntity<Integer> countAllMedicine() {
+        int num = medicinesService.countMedicine();
+        return ResponseEntity.ok(num);
+    }
 }

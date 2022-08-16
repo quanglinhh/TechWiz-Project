@@ -68,6 +68,10 @@ public class DoctorServiceImpl implements DoctorService{
 
         return doctorRepository.findAllByHealthFacilities(facility);
     }
+    @Override
+    public int countDoctor() {
+        return doctorRepository.countList();
+    }
 
     @Override
     public Doctors findByDoctorName(String name) {

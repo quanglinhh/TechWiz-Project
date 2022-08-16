@@ -2,6 +2,7 @@ package com.example.backendv1.ControllerView;
 
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UsersService;
+//import jdk.internal.access.JavaLangInvokeAccess;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,8 +17,9 @@ public class RootController {
     @Autowired
     UsersService usersService;
 
-    @GetMapping({"home", "", "/"})
-    public String home(Model model) {
+    public void GetId(
+            Model model
+    ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         Optional<Users> opUsert = usersService.findByEmail(currentPrincipalName);
@@ -27,12 +29,16 @@ public class RootController {
         } else {
             u = new Users();
         }
-        System.out.println("U id = " + u.getId());
-        model.addAttribute("currentUser", u);
         model.addAttribute("currentUserId", u.getId());
         model.addAttribute("image", u.getImage());
+        model.addAttribute("name", u.getName());
 
-        System.out.println(u.getImage());
+        System.out.println(u.getId());
+    }
+
+    @GetMapping({"home", "", "/"})
+    public String home(Model model) {
+        GetId(model);
 
         return "Home/index";
     }
@@ -63,7 +69,13 @@ public class RootController {
     }
 
     @GetMapping("/indexxx")
-    public String indexxx() {
-        return "Layout/indexxx";
+    public String indexxx(
+            Model model
+    ) {
+        GetId(model);
+
+        return "layout/indexxx";
     }
+
+
 }

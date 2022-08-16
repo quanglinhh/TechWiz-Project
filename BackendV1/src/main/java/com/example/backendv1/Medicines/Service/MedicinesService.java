@@ -13,4 +13,6 @@ public interface MedicinesService {
     public int addMedicines(Medicines medicines);
     public int updateMedicines(long id, Medicines medicines);
     public int deleteMedicines(long id);
+    public int countMedicine();
+
 }

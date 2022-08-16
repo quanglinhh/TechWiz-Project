@@ -36,6 +36,7 @@ public class UserRoles {
     @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Roles rolesByRoleId;
+    
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Users usersByUserId;

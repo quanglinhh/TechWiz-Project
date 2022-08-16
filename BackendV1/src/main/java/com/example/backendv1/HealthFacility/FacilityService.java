@@ -18,6 +18,6 @@ public interface FacilityService {
     HealthFacilities findFacilitiesByName(String name);
 
     List<HealthFacilities> finFacilityByAddress(String address);
-
+    public int countFacility();
 
 }

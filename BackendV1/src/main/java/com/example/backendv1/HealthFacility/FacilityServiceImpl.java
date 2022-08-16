@@ -11,11 +11,16 @@ import java.util.Optional;
 
 @Service
 public class FacilityServiceImpl implements FacilityService {
+
     @Autowired
     private FacilityRepository healthFacilityRepo;
     @Override
     public List<HealthFacilities> getAllHealthFacility() {
         return healthFacilityRepo.findAll();
+    }
+    @Override
+    public int countFacility() {
+        return healthFacilityRepo.countList();
     }
 
     @Override

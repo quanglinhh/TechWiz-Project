@@ -10,4 +10,5 @@ public interface SpecialistService {
     void addSpecialist(Specialists specialist);
     public boolean  deleteSpecialist(Long id);
     public Specialists updateSpecialist (Long id, Specialists specialist);
+    public int countSpecialist();
 }

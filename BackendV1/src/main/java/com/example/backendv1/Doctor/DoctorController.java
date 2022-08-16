@@ -80,4 +80,9 @@ public class DoctorController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("count-all")
+    public ResponseEntity<Integer> countAllDoctor() {
+        int num = doctorService.countDoctor();
+        return ResponseEntity.ok(num);
+    }
 }

@@ -54,4 +54,9 @@ public class SpecialistController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("count-all")
+    public ResponseEntity<Integer> countAllSpecialist() {
+        int num = specialistService.countSpecialist();
+        return ResponseEntity.ok(num);
+    }
 }

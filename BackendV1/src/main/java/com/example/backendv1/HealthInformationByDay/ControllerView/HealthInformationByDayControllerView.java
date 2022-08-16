@@ -7,6 +7,8 @@ import com.example.backendv1.UserRole.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,25 @@ public class HealthInformationByDayControllerView {
 
     @Autowired
     UsersService usersService;
+
+    public void GetId(
+            Model model
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Optional<Users> opUsert = usersService.findByEmail(currentPrincipalName);
+        Users u;
+        if(opUsert.isPresent()) {
+            u = opUsert.get();
+        } else {
+            u = new Users();
+        }
+        model.addAttribute("currentUserId", u.getId());
+        model.addAttribute("image", u.getImage());
+        model.addAttribute("name", u.getName());
+
+        System.out.println(u.getId());
+    }
 
     //get all
     @GetMapping("/healthInformationByDay")
@@ -43,6 +64,8 @@ public class HealthInformationByDayControllerView {
             List<Integer> pageNumbers = IntStream.rangeClosed(1 , totalPages).boxed().collect(Collectors.toList());
             model.addAttribute("pageNumbers",pageNumbers);
         }
+
+        GetId(model);
 
         return "healthInformationByDay/healthInformationByDays";
     }

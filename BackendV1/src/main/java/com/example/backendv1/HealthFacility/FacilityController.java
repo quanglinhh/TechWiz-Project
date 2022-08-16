@@ -70,6 +70,10 @@ public class FacilityController {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
-
+    @GetMapping("count-all")
+    public ResponseEntity<Integer> countAllSpecialist() {
+        int num = facilityService.countFacility();
+        return ResponseEntity.ok(num);
+    }
 
 }

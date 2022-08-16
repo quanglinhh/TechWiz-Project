@@ -113,7 +113,7 @@
   function addressChanged(obj) {
     var htmlContent = ""
     var value = obj.value;
-    var api = "/api/facility/address/"+value
+    var api = "/api/facility/address/" + value
     var id = obj.id;
     fetch(api)
             .then((response) => response.json())
@@ -121,7 +121,7 @@
 
                     $.ajax({
                       method: "GET",
-                      url: "/api/facility/address/"+value,
+                      url: "/api/facility/address/" + value,
                       type:"json",
                       success: function (reponse){
                         for (let i = 0 ; i<reponse.length ; i++){
@@ -187,8 +187,7 @@
       contentType:"application/json",
       data:JSON.stringify(formData),
       success: function (reponse){
-
-        // window.location.href = "/user/1";
+        window.location.href = "/Appointment/user/" + formData.user.id;
       },error: function (err){
         alert("false")
       }
@@ -219,7 +218,7 @@
       contentType: "application/json",
       data: JSON.stringify(data),
       success: function (response) {
-        alert("success save book , please check your email");
+        // alert("success save book");
       },
       error: function (err) {
         alert(err)

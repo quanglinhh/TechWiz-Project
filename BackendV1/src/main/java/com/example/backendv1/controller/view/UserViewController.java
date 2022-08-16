@@ -3,6 +3,8 @@ package com.example.backendv1.controller.view;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -15,16 +17,39 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 
 @Controller
 public class UserViewController {
     private final String UPLOAD_DIR = "src/main/resources/static/uploads/images/";
     @Autowired
     UserServiceImpl userService;
+
+    public void GetId(
+            Model model
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Optional<Users> opUsert = userService.findByEmail(currentPrincipalName);
+        Users u;
+        if(opUsert.isPresent()) {
+            u = opUsert.get();
+        } else {
+            u = new Users();
+        }
+        model.addAttribute("currentUserId", u.getId());
+        model.addAttribute("image", u.getImage());
+        model.addAttribute("name", u.getName());
+
+        System.out.println(u.getId());
+    }
+
     @GetMapping(value = {"/user/{id}"})
     public String showIndex(@PathVariable("id") Long id, Model model){
         Users user = userService.getUserById(id).get();
         model.addAttribute("user",user);
+
+        GetId(model);
         return "user/userInfo";//tên view = tên file html
     }
 

@@ -15,7 +15,11 @@ import java.util.Optional;
 public class MedicinesServiceImplement implements MedicinesService{
     @Autowired
     RepositoryMedicines repositoryMedicines;
+    @Override
+    public int countMedicine() {
+        return repositoryMedicines.countList();
 
+    }
     @Override
     public List<Medicines> getAllMedicines() {
         return repositoryMedicines.findAll();

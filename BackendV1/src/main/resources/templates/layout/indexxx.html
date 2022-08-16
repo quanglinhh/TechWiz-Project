@@ -62,19 +62,18 @@
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a th:href="@{/user/1}" class="nav__dropdown-item">Information</a>
-                                    <a href="#" class="nav__dropdown-item">Account</a>
-                                    <a th:href="@{/Appointment/user/1}" class="nav__dropdown-item">Appointment Schedule</a>
+                                    <a th:href="@{'/user/' + ${currentUserId}}" class="nav__dropdown-item">Information</a>
+                                    <a th:href="@{'/Appointment/user/' + ${currentUserId}}" class="nav__dropdown-item">Appointment Schedule</a>
                                 </div>
                             </div>
                         </div>
 
-                        <a th:href="@{/bookDoctorForm/user/1}" class="nav__link">
+                        <a th:href="@{'/bookDoctorForm/user/' + ${currentUserId}}" class="nav__link">
                             <i class='bx bx-book-content nav__icon'></i>
                             <span class="nav__name">Add Appointment</span>
                         </a>
 
-                        <a th:href="@{/web/drug2/1}" class="nav__link">
+                        <a th:href="@{'/web/drug2/' + ${currentUserId}}" class="nav__link">
                             <i class='bx bxs-capsule nav__icon'></i>
                             <span class="nav__name">Drug</span>
                         </a>

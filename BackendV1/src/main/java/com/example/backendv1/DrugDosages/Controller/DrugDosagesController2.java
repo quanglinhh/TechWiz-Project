@@ -8,6 +8,8 @@ import com.example.backendv1.Medicines.Service.MedicinesService;
 import com.example.backendv1.UserRole.Model.Users;
 import com.example.backendv1.UserRole.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,26 @@ public class DrugDosagesController2 {
     @Autowired private UsersService usersService;
 
     @Autowired private MedicinesService medicinesService;
+
+    public void GetId(
+            Model model
+    ) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        Optional<Users> opUsert = usersService.findByEmail(currentPrincipalName);
+        Users u;
+        if(opUsert.isPresent()) {
+            u = opUsert.get();
+        } else {
+            u = new Users();
+        }
+        model.addAttribute("currentUserId", u.getId());
+        model.addAttribute("image", u.getImage());
+        model.addAttribute("name", u.getName());
+
+        System.out.println(u.getId());
+    }
+
     @GetMapping(path = "/drug")
     public String getAll(){
         return "DrugDoseUsage/drugdose";
@@ -33,6 +55,8 @@ public class DrugDosagesController2 {
         listAll.forEach(System.out::println);
         model.addAttribute("listAll", listAll);
         model.addAttribute("idUser", idUser);
+
+        GetId(model);
         return "DrugDoseUsage/drugdose2";
     }
 
