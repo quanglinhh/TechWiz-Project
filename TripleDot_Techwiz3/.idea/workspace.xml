@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5fc0c2b4-0ab9-4b6f-99c9-2cc558c17f42" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/quartz/controller/EmailJobSchedulerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/quartz/job/EmailJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/quartz/payload/ScheduleEmailRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/quartz/payload/ScheduleEmailResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/demo/src/test/java/com/example/demo/DemoApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Auth/Config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Auth/Config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/BackendV1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/BackendV1Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/ControllerView/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/ControllerView/RootController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/DoctorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/Doctors.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Doctor/Doctors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/DrugDosages/Controller/DrugDosagesController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/DrugDosages/Controller/DrugDosagesController2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthFacility/FacilityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthInformationByDay/ControllerView/HealthInformationByDayControllerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/HealthInformationByDay/ControllerView/HealthInformationByDayControllerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/MedicalHistory/Specialist/SpecialistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Specialist/SpecialistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/MedicalHistory/Specialist/SpecialistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Specialist/SpecialistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/MedicalHistory/Specialist/SpecialistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Specialist/SpecialistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/MedicalHistory/Specialist/SpecialistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Specialist/SpecialistServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/MedicalHistory/Specialist/Specialists.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Specialist/Specialists.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Controller/MedicinesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Controller/MedicinesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Repository/RepositoryMedicines.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Repository/RepositoryMedicines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Service/MedicinesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Service/MedicinesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Service/MedicinesServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/Medicines/Service/MedicinesServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/RoleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/UserRole/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/controller/view/AppointmentSchedulesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/controller/view/AppointmentSchedulesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/controller/view/UserViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/java/com/example/backendv1/controller/view/UserViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/app-creative-dark.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/app-creative-dark.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/app-creative.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/app-creative.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/icons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/css/icons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Bold.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Bold.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-Regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-SemiBold.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/Nunito-SemiBold.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/dripicons-v2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/dripicons-v2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/unicons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/fonts/unicons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/js/app.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/js/vendor.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/static/js/vendor.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/DrugDoseUsage/DrugForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/DrugDoseUsage/DrugForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/Home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/Home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/appointmentSchedules/BookingCare.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/appointmentSchedules/BookingCare.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/Auth/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/auth/ok.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/Auth/ok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/auth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/Auth/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/layout/indexxx.html" beforeDir="false" afterPath="$PROJECT_DIR$/Sourcecode/TechWiz-Project/BackendV1/src/main/resources/templates/layout/indexxx.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Sourcecode/TechWiz-Project" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GJWhjPnfISzGH6fnBH3qUZeM3d" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/exercise/exercise/JavaEx/javaClass1/rent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="LiferayDockerServerConfiguration" factoryName="Liferay Docker Server">
+      <option name="passParentEnvironments" value="true" />
+      <option name="workspaceLocation" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5fc0c2b4-0ab9-4b6f-99c9-2cc558c17f42" name="Changes" comment="" />
+      <created>1666107287326</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666107287326</updated>
+      <workItem from="1666107288963" duration="39000" />
+      <workItem from="1666688902912" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
